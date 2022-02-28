@@ -1,134 +1,163 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+            />
 
-    <title>reveal.js</title>
+        <title>reveal.js</title>
 
-    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
-    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
-    <link rel="stylesheet" href="reveal.js/dist/theme/serif.css" id="theme" />
+        <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+        <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+        <link rel="stylesheet" href="reveal.js/dist/theme/serif.css" id="theme" />
 
-    <!-- Theme used for syntax highlighted code -->
-    <link
-      rel="stylesheet"
-      href="reveal.js/plugin/highlight/monokai.css"
-      id="highlight-theme"
-    />
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section> 
-          <section> Why QGIS? </section>
+        <!-- Theme used for syntax highlighted code -->
+        <link
+            rel="stylesheet"
+            href="reveal.js/plugin/highlight/monokai.css"
+            id="highlight-theme"
+            />
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <section>Introduction to QGIS</section>
+                    <section data-background-iframe="https://www.zhaw.ch/en/about-us/person/rata/"></section>
+                    </section>
+                <section> 
+                    <section> Why QGIS?  
+                        <aside class="notes">
+                            
+                        </aside>
+                    </section>
 
-          <section> 
-              <ul>
-                  <li>Widely used and very popular</li>
-                  <li>Free and Open Source </li>
-                  <li>Cross Plattform (Windows, MacOS &amp; Linux</li> 
-              </ul>
-          </section>
-          <section> Widely used and very popular </section> 
-          <section> 
-              <blockquote class="twitter-tweet" data-lang="en" data-theme="light"><p lang="en" dir="ltr">We are developping a new course on remote sensing at our uni. What software would you primarily base it on: <a href="https://twitter.com/ArcGISPro?ref_src=twsrc%5Etfw">@ArcGISPro</a> or <a href="https://twitter.com/qgis?ref_src=twsrc%5Etfw">@qgis</a> ? Pure <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> or <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> is not an option 😔 <a href="https://t.co/G4I6izCqhF">pic.twitter.com/G4I6izCqhF</a></p>&mdash; Nils Ratnaweera (@NRatnaweera) <a href="https://twitter.com/NRatnaweera/status/1447974898811424775?ref_src=twsrc%5Etfw">October 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-          </section> 
-          <section>
-              <div> <img data-src="images/twitter2.png" style="height: 700px;"> </img> </div> 
-          </section>
-          <section><img data-src="images/arcgis-qgis.png"> 
-              <small>Source: Data from Stackexchange, Visualized by N. Ratnaweera </small> 
-          </section>
-          <section> 
-              Free and Open Source </br> 
+                    <section> 
+                        <ul>
+                            <li>Widely used and very popular</li>
+                            <li>Free and Open Source </li>
+                            <li>Cross Plattform (Windows, MacOS &amp; Linux</li> 
+                        </ul>
+                    </section>
+                    <section> Widely used and very popular </section> 
+                    <section> 
+                        <blockquote class="twitter-tweet" data-lang="en" data-theme="light"><p lang="en" dir="ltr">We are developping a new course on remote sensing at our uni. What software would you primarily base it on: <a href="https://twitter.com/ArcGISPro?ref_src=twsrc%5Etfw">@ArcGISPro</a> or <a href="https://twitter.com/qgis?ref_src=twsrc%5Etfw">@qgis</a> ? Pure <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> or <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> is not an option 😔 <a href="https://t.co/G4I6izCqhF">pic.twitter.com/G4I6izCqhF</a></p>&mdash; Nils Ratnaweera (@NRatnaweera) <a href="https://twitter.com/NRatnaweera/status/1447974898811424775?ref_src=twsrc%5Etfw">October 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                    </section> 
+                    <section>
+                        <div> <img data-src="images/twitter2.png" style="height: 700px;"> </img> </div> 
+                    </section>
+                    <section><img data-src="images/arcgis-qgis.png"> 
+                        <small>Source: Data from Stackexchange, Visualized by N. Ratnaweera </small> 
+                    </section>
+                    <section> 
+                        Free and Open Source </br> 
 
-              <ul> 
-                  <li> Free as in beer</li>
-                  <li> Free as in speech</li>
-              </ul> 
+                        <ul> 
+                            <li> Free as in beer</li>
+                            <li> Free as in speech</li>
+                        </ul> 
 
-          </section>
-          <section> 
-              Cross Plattform <br> <br>
-              <i class="fa-brands fa-linux fa-5x fa-border"></i>   
-              <i class="fa-brands fa-windows fa-5x fa-border"></i>
-              <i class="fa-brands fa-apple fa-5x fa-border"></i> 
-          </section> 
-      </section> 
+                    </section>
+                    <section> 
+                        Cross Plattform <br> <br>
+                        <i class="fa-brands fa-linux fa-5x fa-border"></i>   
+                        <i class="fa-brands fa-windows fa-5x fa-border"></i>
+                        <i class="fa-brands fa-apple fa-5x fa-border"></i> 
+                    </section> 
+                </section> 
 
-      <section> 
-          <section> How is QGIS different from ArcGIS? <br>
-              <small>a side by side comparison</small>
-          </section> 
-          <section> 
-              <table style="font-size:smaller"> 
-                  <tr> 
-                      <th> </th> 
-                      <th> ArcGIS <img data-src="images/arcgis-icon.png" style="height:30px"> </th> 
-                      <th> QGIS <img data-src="images/qgis-icon.png" style="height:50px"></th> 
-                  </tr>
-                  <tr class="fragment">
-                      <th> Point of contact</th> 
-                      <th> Single (ESRI)</th> 
-                      <th> Multiple </th> 
-                  </tr> 
-                  <tr class="fragment"> 
-                      <th> Concept </th> 
-                      <th class="fragment highlight-red">from one mould</th> 
-                      <th> Modular (messy!) </th> 
-                  </tr> 
-                  <tr class="fragment">
-                      <th>Community</th>
-                      <th>Weak</th>
-                      <th class="fragment highlight-red">Strong!</th>
-                  </tr> 
-                  <tr class="fragment"> 
-                      <th> Documentation </th> 
-                      <th class="fragment highlight-red"> Excellent, very visual</th> 
-                      <th> Poor, very geeky </th> 
-                  </tr> 
-                  <tr class="fragment">
-                      <th> User Interface (UX)</th>
-                      <th class="fragment highlight-red"> Sleek, self explaining </th>
-                      <th> Outdated </th> 
-                  </tr> 
-                  <tr class="fragment">
-                      <th>Compliance w/ Open Standards (OGC)</th>
-                      <th>Poor</th>
-                      <th class="fragment highlight-red">High</th>
-                  </tr>
-                  <tr class="fragment">
-                      <th>Support for data formats</th>
-                      <th>Poor</th>
-                      <th class="fragment highlight-red">Rich</th>
+                <section> 
+                    <section> How is QGIS different from ArcGIS? <br>
+                        <small>a side by side comparison</small>
+                    </section> 
+                    <section>
+                        <style>
+                            #comparison td {
+                                border-bottom: 0px;
+                            }
+                        </style>
+                        <table id="comparison" cellspacing="0" cellpadding="0" style="font-size:smaller; border:none; border-collapse:collapse"> 
+                            <tr> 
+                                <th> </th> 
+                                <th> ArcGIS <img data-src="images/arcgis-icon.png" style="height:30px"> </th> 
+                                <th> QGIS <img data-src="images/qgis-icon.png" style="height:50px"></th> 
+                            </tr>
+                            <tr class="fragment">
+                                <td> Point of contact</td> 
+                                <td> Single (ESRI)</td> 
+                                <td> Multiple </td> 
+                            </tr> 
+                            <tr class="fragment"> 
+                                <td> Concept </td> 
+                                <td>from one mould</td> 
+                                <td> Modular (messy!) </td> 
+                            </tr> 
+                            <tr class="fragment">
+                                <td>Community</td>
+                                <td>Weak</td>
+                                <td>Strong!</td>
+                            </tr> 
+                            <tr class="fragment"> 
+                                <td> Documentation </td> 
+                                <td> Excellent, very visual</td> 
+                                <td> Poor, very geeky </td> 
+                            </tr> 
+                            <tr class="fragment">
+                                <td> User Interface (UX)</td>
+                                <td> Sleek, self explaining </td>
+                                <td> Outdated </td> 
+                            </tr> 
+                            <tr class="fragment">
+                                <td>Compliance w/ Open Standards (OGC)</td>
+                                <td>Poor</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="fragment">
+                                <td>Support for data formats</td>
+                                <td>Poor</td>
+                                <td>Rich</td>
+                            </tr>
 
-                  </tr>
+                        </table> 
 
-              </table> 
-          </section> 
-      </section> 
-      </div>
-    </div>
+                    </section>
+                </section> 
+                <section>
+                    <section>First steps in QGIS</section>
+                    <section>
+                        <ul>
+                            <li>Start up QGIS</li>
+                            <!--<li>Download Data from Moodle</li>
+                            <li>Use the QGIS Browser to navigate to your data</li> -->
+                        </ul>
+                        <aside class="notes">
+                            
+                            <ul>
+                                <li>Getting to know the UI</li>
+                            </ul>        
+                        </aside>
+                    </section>
+                </section>
+            </div>
+        </div>
 
-    <script src="reveal.js/dist/reveal.js"></script>
-    <script src="reveal.js/plugin/notes/notes.js"></script>
-    <script src="reveal.js/plugin/markdown/markdown.js"></script>
-    <script src="reveal.js/plugin/highlight/highlight.js"></script>
-    <script src="reveal.js/plugin/zoom/zoom.js"></script>
-    <script>
-      // More info about initialization & config:
-      // - https://revealjs.com/initialization/
-      // - https://revealjs.com/config/
-      Reveal.initialize({
-        hash: true,
+        <script src="reveal.js/dist/reveal.js"></script>
+        <script src="reveal.js/plugin/notes/notes.js"></script>
+        <script src="reveal.js/plugin/markdown/markdown.js"></script>
+        <script src="reveal.js/plugin/highlight/highlight.js"></script>
+        <script src="reveal.js/plugin/zoom/zoom.js"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
 
-        // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom],
-      });
-    </script>
-  </body>
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom],
+            });
+        </script>
+    </body>
 </html>
