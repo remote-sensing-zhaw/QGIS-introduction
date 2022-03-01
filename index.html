@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
         <link rel="stylesheet" href="reveal.js/dist/theme/league.css" id="theme" />
         <link rel="stylesheet" href="timer.css" />
+        <link rel="stylesheet" href="timer2.css" />
         <style>
             .pull-left {
                 float: left;
@@ -231,20 +232,154 @@
                                 <li>with linear interpolation and different colour ramps</li>
                                 <li>duplicate layer and show hillshade with different azimuth and z-factor</li>
                                 <li>duplicate layer and show contours</li> 
-                                
+
                             </ul>
                         </aside>
                     </section>
                     <section>
                         Your turn! <br> <br> 
 
-                        Import the other datasets into QGIS and play around with symobology
+                        Import the other raster datasets into QGIS and play around with symobology <br> <br> 
+
+                        You have 5 Minutes!
                     </section>
+
                     <section>
                         <div id="app"> </div> 
                     </section>
+
+                    <!--https://codepen.io/jmikey/pen/ARjONp
+                        <section>
+                        <div id="container">
+                        <div id="inputArea">
+                        </div>
+                        <h2 id="time">0:00</h2>
+                        </div>
+                        </section>
+                    -->
+                    <section>
+                        Import <code>Waldgebiete</code> into QGIS
+                        <aside class="notes">
+                            <ul>
+                                <li>Open Attribute Table</li>
+                                <li>Change Symbology</li>
+                                <ul>
+                                    <li>Simple Fill: Fill Colour, Stroke Colour, Stroke Width and Style</li>
+                                    <li>Gradient fill, hashed fill</li>
+                                    <li>Categorized </li> 
+                                    <li>Graduated</li>
+                                </ul>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        Your turn! 
+                    </section>
+                </section>
+                <section>
+                    <section>Rasterprocessing with QGIS </section>
+                    <section>Finding suitable locations for wind turbines
+                        <aside class="notes">
+
+                        </aside>
+                    </section>
+                    <section>
+                        Exclusion areas <br> 
+                        <ul> 
+                            <li>Lakes</li>
+                            <li>National protected areas</li>
+                            <li>Minimum distance of 200 m from existing settlement areas</li>
+                        </ul>
+                    </section>
+                    <section> 
+                        Areas of interest<br> 
+                        <ul>
+                            <li>Sufficient wind potential</li>
+                            <li>Low risk of icing</li>
+                            <li>Easy access (existing road and low gradient)</li>
+                        </ul> 
+                    </section>
+                    <section> 
+                        Acceptance<br>
+                        <ul>
+                            <li>Not too close to settlements</li>
+                            <li>Not too close to protected areas</li>
+                            <li>Not too close to forest areas</li>
+                        </ul> 
+                    </section>
+                    <section>
+                        <img data-src="images/Prozessmodell_MCE_Wind_SZ_en.png"></img> 
+                        <aside class="notes">
+                            <li>Euclidean distance to bewohnte Flächen, Nationale Schutzgebeiete, Waldgebiete + Seen</li>
+                            <li>What does the tool "euclidean distance" actually do?</li>
+                            <li>Search for Euclidean distance in the QGIS Toolbox </li>
+                            <li>Euclidean distance does not exist in QGIS, as a quick google search will tell you</li>
+                            <li>The tool "proximity" can only calculate the distance to raster cells, so we first have to turn our vector to raster </li>
+                            <li>We can do this with the tool "rasterize"</li>
+                        </aside>
+                    </section>
+                    <section>
+                        Settlements
+                        <img data-src="images/mermaid-settlements.png"> 
+                        <table cellspacing="0" style="font-size:small">
+                            <tr>
+                                <th>Distance (meters)</th>
+                                <th>Class</th>
+                            </tr>
+                            <tr>
+                                <td>0- 150</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>150-300</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>300-450</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>450-600</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>&#62; 600</td>
+                                <td>5</td>
+                            </tr>
+                        </table>
+                    </section>
+                    <section>
+
+                        <table cellspacing="0" style="font-size:smaller">
+                            <tr>
+                                <th>Windspeed (dm/s)</th>
+                                <th>Class</th>
+                            </tr>
+                            <tr>
+                                <td>0- 35</td>
+                                <th>1</th>
+                            </tr>
+                            <tr>
+                                <th>35 - 45</th>
+                                <th>2</th>
+                            </tr>
+                            <tr>
+                                <th>45 - 55</th>
+                                <th>3</th>
+                            </tr>
+                            <tr>
+                                <th>55 - 65</th>
+                                <th>4</th>
+                            </tr>
+                            <tr>
+                                <th>&#62; 65</th>
+                                <th>5</th>
+                            </tr>
+                        </table>
+                    </section>
                 </section>
             </div>
+
         </div>
 
         <script src="reveal.js/dist/reveal.js"></script>
@@ -253,6 +388,8 @@
         <script src="reveal.js/plugin/highlight/highlight.js"></script>
         <script src="reveal.js/plugin/zoom/zoom.js"></script>
         <script src="timer.js"></script>
+        <!--<script src="timer2.js"></script> --> 
+        <!--<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>-->
         <script>
             // More info about initialization & config:
             // - https://revealjs.com/initialization/
