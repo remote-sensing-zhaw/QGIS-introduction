@@ -7,12 +7,22 @@
             content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
             />
 
-        <title>reveal.js</title>
+        <title>Introduction to QGIS</title>
 
-        <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+        <!---<link rel="stylesheet" href="reveal.js/dist/reset.css" />-->
         <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
-        <link rel="stylesheet" href="reveal.js/dist/theme/serif.css" id="theme" />
-
+        <link rel="stylesheet" href="reveal.js/dist/theme/league.css" id="theme" />
+        <link rel="stylesheet" href="timer.css" />
+        <style>
+            .pull-left {
+                float: left;
+                width: 47%;
+            }
+            .pull-right {
+                float: right;
+                width: 47%;
+            }
+        </style>
         <!-- Theme used for syntax highlighted code -->
         <link
             rel="stylesheet"
@@ -26,11 +36,11 @@
                 <section>
                     <section>Introduction to QGIS</section>
                     <section data-background-iframe="https://www.zhaw.ch/en/about-us/person/rata/"></section>
-                    </section>
+                </section>
                 <section> 
                     <section> Why QGIS?  
                         <aside class="notes">
-                            
+
                         </aside>
                     </section>
 
@@ -125,19 +135,113 @@
                     </section>
                 </section> 
                 <section>
-                    <section>First steps in QGIS</section>
-                    <section>
+                    <section>First steps in QGIS <br> <br> 
                         <ul>
-                            <li>Start up QGIS</li>
+                            <li class="fragment">Start up QGIS</li>
+                            <li class="fragment">Change Icon Size</li>
+                            <li class="fragment">Catalog+Content Pane</li>
+                            <li class="fragment">Project CRS</li>
                             <!--<li>Download Data from Moodle</li>
-                            <li>Use the QGIS Browser to navigate to your data</li> -->
+                                <li>Use the QGIS Browser to navigate to your data</li> -->
                         </ul>
                         <aside class="notes">
-                            
+
                             <ul>
                                 <li>Getting to know the UI</li>
                             </ul>        
                         </aside>
+                    </section>
+                </section>
+                <section>
+                    <section>A refresher on Coordinate Reference Systems and Projections</section>
+                    <section>
+                        WGS84 is a <em>Geographic Coordinate System</em>
+                        <img data-src="images/LatLonOnEarth.png">
+                    </section>
+                    <section>
+                        Geographic Coordinate Systems<br> <br>
+                        <ul>
+                            <li class="fragment">They see the world as a sphere </li>
+                            <li class="fragment">They use longitude and latitude</li>
+                            <li class="fragment">They are useful for global data</li>
+                            <li class="fragment">They are cumbersome for small-scale applications</li>
+                            <li class="fragment">The most important is WGS84</li>
+                        </ul>
+                    </section>
+                    <section>
+                        WGS84: <br> <br>
+
+                        <ul>
+                            <li class="fragment highlight-red"> EPSG Code: 4326 (!!!) </li>
+                            <li class="fragment"> West-East -180 to +180</li>
+                            <li class="fragment"> South-North -90 to +90</li> 
+                            <li class="fragment"> Switzerland</li>
+                            <ul>
+                                <li class="fragment">West-East 5.9 - 10.4</li>
+                                <li class="fragment">South-North 45.8 - 47.8 </li>
+                            </ul>
+                        </ul>
+                    </section>
+                    <section>
+                        Projected Coordinate Systems <br> <br>
+                        <ul> 
+                            <li class="fragment">They abstract the world to a 2D-plane</li> 
+                            <li class="fragment">They use x/y or E/N coordinates </li> 
+                            <li class="fragment">They are useful for local (e.g. National) data</li> 
+                            <li class="fragment">Cannot be used for global data</li> 
+                            <li class="fragment">The most important (for us) are CH1903+LV95 and CH1903 LV03</li> 
+                        </ul>
+                    </section>
+                    <section>
+                        <div class="pull-left">
+                            <img data-src="images/epsg2056.png">
+                        </div>
+                        <div class="pull-right">
+                            CH1903+ LV95 <br><br> 
+                            <ul>
+                                <li class="fragment highlight-red">EPSG Code: 2056</li>
+                                <li class="fragment">is the new swiss coordinate system</li>
+                                <li class="fragment">is centered on Bern</li>
+                                <li class="fragment">West-East 2.4-2.8m</li>
+                                <li class="fragment">South-North 1.1-1.3m</li>
+                            </ul>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section> Importing data into QGIS </section>
+
+                    <section>
+                        Download Geopackage from moodle
+                        <aside class="notes">
+                            <ul>
+                                <li>What is a geopackage? It's not an arcgis pro package but an alternative to file geodatabase and shapefiles</li>
+                                <li>Navigate to the data using the Browser pane. Add as a bookmark if desired</li>
+                                <li>What CRS does the dataset have? Check layer properties!</li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        Import <code>dhm25m</code> into QGIS
+                        <aside class="notes">
+                            <ul>
+                                <li>doubleclick or right click→ Add layer to project</li>
+                                <li>View &rarr; Panels &rarr; Layer Styling</li>
+                                <li>Singleband Pseudocolour with discrete classes, raising the number of classes</li>
+                                <li>with linear interpolation and different colour ramps</li>
+                                <li>duplicate layer and show hillshade with different azimuth and z-factor</li>
+                                <li>duplicate layer and show contours</li> 
+                                
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        Your turn! <br> <br> 
+
+                        Import the other datasets into QGIS and play around with symobology
+                    </section>
+                    <section>
+                        <div id="app"> </div> 
                     </section>
                 </section>
             </div>
@@ -148,6 +252,7 @@
         <script src="reveal.js/plugin/markdown/markdown.js"></script>
         <script src="reveal.js/plugin/highlight/highlight.js"></script>
         <script src="reveal.js/plugin/zoom/zoom.js"></script>
+        <script src="timer.js"></script>
         <script>
             // More info about initialization & config:
             // - https://revealjs.com/initialization/
@@ -161,3 +266,4 @@
         </script>
     </body>
 </html>
+
