@@ -8,7 +8,7 @@
             />
 
         <title>Introduction to QGIS</title>
-        <!---<link rel="stylesheet" href="reveal.js/dist/reset.css" />-->
+        <link rel="stylesheet" href="reveal.js/dist/reset.css" />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
         <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
@@ -25,6 +25,9 @@
             ul, li{
                 font-size:smaller;
             }
+            figcaption{
+                font-size: smaller
+            }
 
         </style>
         <!-- Theme used for syntax highlighted code -->
@@ -38,7 +41,10 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <section>Introduction to QGIS</section>
+                    <section>
+                        Introduction to QGIS <br> <br>
+                        <i class="fa-solid fa-rocket fa-3x"></i>
+                    </section>
                     <section>
                         <div class="pull-left" style="text-align:right">
                             <img data-src="https://www.zhaw.ch/forschungsdaten/portraet/images/rata.gif" style="border-radius:100%" width="40%">
@@ -57,7 +63,19 @@
                         </div>
                     </section>
                     <section>
-                        <div style="display:grid;grid-template-columns:repeat(4, auto)">
+                        <div style="display:grid;grid-template-columns:auto auto;text-align:left; ">
+                            <div>Lesson 1</div>
+                            <div>Introduction and first step</div>
+                            <div>Lesson 2</div>
+                            <div>Raster and Vector data in QGIS </div>
+                            <div>Lesson 3</div>
+                            <div>MCE and Plugins in QGIS</div>
+                            <div>Lesson 4</div>
+                            <div>Sentinel Data in QGIS</div>
+                        </div>
+                    </section>
+                    <section>
+                        <div style="display:grid;grid-template-columns:repeat(4, auto);grid-row-gap:50px">
                             <div>
                                 <i class="fa-solid fa-bullhorn" style=""></i>
                                 Inputs
@@ -75,11 +93,20 @@
                                 <i class="fa-solid fa-hammer"></i>
                                 Workshops
                             </div>
+                            <div class="fragment">I talk</div>
+                            <div class="fragment">I show</div>
+                            <div class="fragment">you do</div>
+                            <div class="fragment">we do</div>
                         </div>
                     </section>
                 </section>
                 <section> 
-                    <section> Why QGIS?  
+                    <section> 
+
+                        Why QGIS?  <br><br> 
+
+                        <i class="fa-solid fa-circle-question fa-3x"></i>
+
                         <aside class="notes">
                             <ul>
                                 <li>You just spent an entire semester learning ArcGIS, why do you have to switch?</li>
@@ -91,33 +118,33 @@
                         <ul>
                             <li>Widely used and very popular</li>
                             <li>Free and Open Source </li>
-                            <li>Cross Plattform (Windows, MacOS &amp; Linux)</li> 
+                            <li>Cross-platform (Windows, MacOS &amp; Linux)</li> 
                         </ul>
                     </section>
-                    <section> Widely used and very popular </section> 
+                    <section> Widely used and very popular?? </section> 
                     <section> 
-                        <blockquote class="twitter-tweet" data-lang="en" data-theme="light"><p lang="en" dir="ltr">We are developping a new course on remote sensing at our uni. What software would you primarily base it on: <a href="https://twitter.com/ArcGISPro?ref_src=twsrc%5Etfw">@ArcGISPro</a> or <a href="https://twitter.com/qgis?ref_src=twsrc%5Etfw">@qgis</a> ? Pure <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> or <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> is not an option 😔 <a href="https://t.co/G4I6izCqhF">pic.twitter.com/G4I6izCqhF</a></p>&mdash; Nils Ratnaweera (@NRatnaweera) <a href="https://twitter.com/NRatnaweera/status/1447974898811424775?ref_src=twsrc%5Etfw">October 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                        <blockquote class="twitter-tweet" data-lang="en" data-theme="light"><p lang="en" dir="ltr">We are developing a new course on remote sensing at our uni. What software would you primarily base it on: <a href="https://twitter.com/ArcGISPro?ref_src=twsrc%5Etfw">@ArcGISPro</a> or <a href="https://twitter.com/qgis?ref_src=twsrc%5Etfw">@QGIS</a> ? Pure <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> or <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> is not an option 😔 <a href="https://t.co/G4I6izCqhF">pic.twitter.com/G4I6izCqhF</a></p>&mdash; Nils Ratnaweera (@NRatnaweera) <a href="https://twitter.com/NRatnaweera/status/1447974898811424775?ref_src=twsrc%5Etfw">October 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
                     </section> 
                     <section>
-                        <div> <img data-src="images/twitter2.png" style="height: 700px;"> </img> </div> 
+                        <div> <img data-src="images/twitter2.png" style="height: 650px;"> </img> </div> 
                     </section>
                     <section><img data-src="images/arcgis-qgis.png"> 
-                        <small>Source: Data from Stackexchange, Visualized by N. Ratnaweera </small> 
+                        <figcaption>Source: Data from stackoverflow, Visualized by N. Ratnaweera </figcaption> 
                     </section>
                     <section> 
                         Free and Open Source </br> 
 
                             <ul> 
-                                <li> <i class="fa-solid fa-beer-mug-empty fa-fw"></i>Free as in beer</li>
+                                <li> <i class="fa-solid fa-beer-mug-empty fa-fw"></i> Free as in beer</li>
                                 <li><i class="fa-solid fa-bullhorn fa-fw"></i> Free as in speech</li>
                             </ul> 
 
                     </section>
                     <section> 
-                        Cross Plattform <br> <br>
-                        <i class="fa-brands fa-linux fa-5x fa-border"></i>   
-                        <i class="fa-brands fa-windows fa-5x fa-border"></i>
-                        <i class="fa-brands fa-apple fa-5x fa-border"></i> 
+                        Cross-platform <br> <br>
+                        <i class="fa-brands fa-linux fa-5x fa-fw"></i>   
+                        <i class="fa-brands fa-windows fa-5x fa-fw"></i>
+                        <i class="fa-brands fa-apple fa-5x fa-fw"></i> 
                     </section> 
                     <section data-background-image="images/oasis-wallpaper.jpg">
                         <div style="color:black;">The transition will be hard</div>
@@ -131,9 +158,15 @@
                 </section> 
 
                 <section> 
-                    <section> How is QGIS different from ArcGIS? <br>
-                        <small>an <u>opinionated</u> side by side comparison</small>
+                    <section> 
+
+                        How is QGIS different from ArcGIS? <br><br>
+
+                        <i class="fa-solid fa-jedi fa-3x"></i>
                     </section> 
+                    <section>
+                        <small>an <u>opinionated</u> side by side comparison</small>
+                    </section>
                     <section>
                         <style>
                         #comparison td {
@@ -187,10 +220,12 @@
                     </section>
                 </section> 
                 <section>
+
                     <section>First steps in QGIS <br> <br> 
+                        <i class="fa-solid fa-baby fa-3x"></i>
                     </section> 
                     <section> 
-                        <i class="fa-solid fa-hammer"></i>
+                        <i class="fa-solid fa-hammer fa-2x"></i> <br> <br> 
 
                         Workshop: First contact with QGIS <br> <br> 
                         <aside class="notes">
@@ -206,9 +241,9 @@
                     </section>
                 </section>
                 <section>
-                    <section>A refresher on Coordinate Reference Systems and Projections <br> <br> 
+                    <section> Coordinate Reference Systems and Projections <br> <br> 
 
-                        <i class="fa-solid fa-earth-africa fa-5x"></i>
+                        <i class="fa-solid fa-earth-africa fa-3x"></i>
                     </section>
                     <section>
                         WGS84 is a <em>Geographic Coordinate System</em>
@@ -284,7 +319,12 @@
                     </section>
                 </section>
                 <section>
-                    <section> Raster and vector data in QGIS </section>
+                    <section> 
+                        Raster and vector data in QGIS<br> <br>
+
+                        <i class="fa-solid fa-screwdriver-wrench fa-3x"></i>
+
+                    </section>
 
                     <section>
                         <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
@@ -367,9 +407,14 @@
                 </section>
 
                 <section>
-                    <section>Multicriteria Analysis with QGIS </section>
                     <section>
-                        Finding suitable locations for wind turbines <br> <br>
+
+                        Multicriteria Analysis with QGIS <br> <br>
+
+                        <i class="fa-solid fa-chart-area fa-3x"></i>
+                    </section>
+                <section>
+                    Finding suitable locations for wind turbines <br> <br>
                         <div class="pull-left">
                             Exclusion areas <br> <br>
                             <ul> 
@@ -480,7 +525,7 @@
                     <section>
                         QGIS Plugins <br> <br>
 
-                        <i class="fa-solid fa-plug fa-9x"></i>
+                        <i class="fa-solid fa-plug fa-3x"></i>
                     </section>
                     <section>
                         <ul>
@@ -567,7 +612,7 @@
                         Calculating the normalized difference vegetation index (NDVI). <br><br>
                         <div class="fragment">
                             <i class="fa-solid fa-quote-left fa-2x fa-pull-left"></i>
-                            ... a simple indicator that can be used to analyze remote sensing measurements, assessing whether or not the target being observed contains live green vegetation.
+                            ... a simple indicator that can be used to analyse remote sensing measurements, assessing whether or not the target being observed contains live green vegetation.
                         </div>
                         <aside class="notes"> 
 
@@ -591,7 +636,7 @@
                                 <li>Rename the bands to their respective names (NIR and Red)</li>
                                 <li>Open the Raster calculator</li>
                                 <li>Input the Formula</li>
-                                <li>Choose a Reference Layer (to automatically asign Cellsize, CRS and Extent)</li>
+                                <li>Choose a Reference Layer (to automatically assign cellsize, CRS and Extent)</li>
                                 <li>Run function and visualize with singleband pseudocolour ranging from -1 to 1, linear interpolation, red to green and try different modes (continuous, quantile)</li>
                             </ul>
                         </aside>
@@ -600,12 +645,16 @@
                 </section>
                 <section>
                     <section>
-                        <i class="fa-solid fa-hammer"></i> <br> <br> 
-                        Workshop: Graphical Model Builder</section>
+                        
+                        Workshop: Graphical Model Builder <br> <br>
+
+                        <i class="fa-solid fa-hammer fa-2x"></i>
+                    </section>
+
 
                     <aside class="notes">
                         <ul>
-                            <li>demonstrate building a model to mimick the "euclidean distance" fuction in QGIS</li>
+                            <li>demonstrate building a model to mimic the "euclidean distance" functions in QGIS</li>
                             <li>Explain Model Inputs and Algorithms</li>
                             <li>Save the model to the project. Show the alternative of saving the model to a file</li>
                             <li>Execute the model</li>
