@@ -341,54 +341,35 @@
 
                 <section>
                     <section>Multicriteria Analysis with QGIS </section>
-                    <section>Finding suitable locations for wind turbines
-                        <ul>
-                            <li>Exlusion Areas</li>
-                            <li>Areas of Interest</li>
-                            <li>Acceptance</li>
-                        </ul>
-                        <aside class="notes">
-
-                        </aside>
-                    </section>
                     <section>
-                        Exclusion areas <br> 
-                        <ul> 
-                            <li>Lakes</li>
-                            <li>National protected areas</li>
-                            <li>Minimum distance of 200 m from existing settlement areas</li>
-                        </ul>
-                    </section>
-                    <section> 
-                        Areas of interest<br> 
-                        <ul>
-                            <li>Sufficient wind potential</li>
-                            <li>Low risk of icing</li>
-                            <li>Easy access (existing road and low gradient)</li>
-                        </ul> 
-                    </section>
-                    <section> 
-                        Acceptance<br>
-                        <ul>
-                            <li>Not too close to settlements</li>
-                            <li>Not too close to protected areas</li>
-                            <li>Not too close to forest areas</li>
-                        </ul> 
+                        Finding suitable locations for wind turbines <br> <br>
+                        <div class="pull-left">
+                            Exclusion areas <br> <br>
+                            <ul> 
+                                <li>Lakes</li>
+                                <li>National protected areas</li>
+                                <li>Minimum distance of 200 m from existing settlement areas</li>
+                            </ul>
+                        </div>
+                        <div class="pull-right">
+                            Areas of interest<br> <br>
+                            <ul>
+                                <li>Sufficient wind potential</li>
+                                <li>Low risk of icing</li>
+                                <li>Easy access (existing road and low gradient)</li>
+                            </ul> 
+                        </div>
                     </section>
                     <section>
                         Process Modell for ArcGIS Pro
                         <img data-src="images/mermaid-overview.svg" width = 80%></img> 
                         <aside class="notes">
-                            <li>Euclidean distance to bewohnte Flächen, Nationale Schutzgebeiete, Waldgebiete + Seen</li>
+                            <li>Euclidean distance to roads</li>
                             <li>What does the tool "euclidean distance" actually do?</li>
-                            <li>Search for Euclidean distance in the QGIS Toolbox </li>
-                            <li>Euclidean distance does not exist in QGIS, as a quick google search will tell you</li>
-                            <li>The tool "proximity" can only calculate the distance to raster cells, so we first have to turn our vector to raster </li>
-                            <li>We can do this with the tool "rasterize"</li>
                         </aside>
                     </section>
                     <section>
-                        The ArcGIS Pro way: <br> <br> 
+                        The ArcGIS Pro way<br> <br> 
                         <img data-src="images/mermaid-settlements1.svg">
                         <aside class="notes">
                             <li>live search for the euclidean distance in qgis</li>
@@ -396,34 +377,8 @@
                         </aside>
                     </section>
                     <section> 
-
+                        ArcGIS vs. QGIS <br> <br>
                         <img data-src="images/mermaid-settlements2.svg">
-                        <table cellspacing="0" style="font-size:small; background-color: #04AA6D; float:right" class="fragment">
-                            <tr>
-                                <th>Distance (meters)</th>
-                                <th>Class</th>
-                            </tr>
-                            <tr>
-                                <td>0- 150</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>150-300</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>300-450</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>450-600</td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td>&#62; 600</td>
-                                <td>5</td>
-                            </tr>
-                        </table>
                         <aside class="notes">
                             <ul>
                                 <li>demonstrate the necessary steps</li> 
@@ -436,62 +391,70 @@
                         </aside>
                     </section>
                     <section>
-                        <div style="float:left;width:70%">
-                            <img data-src="images/mermaid-overview.svg"></img> 
+                        <div style="float:left; width:40%">
+                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+
+                        Exercise: Complete the MCA<br> <br>
+
+                        <i class="fa-solid fa-hourglass"></i>
+                        <countdown time="900" autostart="yes" />
                         </div>
-                        <div style="float:right;width:30%">
-                            <table cellspacing="0" style="font-size:small; background-color: #04AA6D;">
+                        <div style="float:right;width:60%;text-align:right">
+                            <table cellspacing="0" style="font-size:small; background-color: #04AA6D;margin-right: 0px;width:100%">
                                 <tr>
+                                    <th>Class</th>
                                     <th>Windspeed (dm/s)</th>
                                     <th>Icing Frequency (d/a)</th>
                                     <th>Slope (Degrees)</th>
-                                    <th>Distance to Protected Areas</th>
-                                    <th>Class</th>
+                                    <th>Distance to Roads </th>
                                 </tr>
                                 <tr>
+                                    <td>1</td>
                                     <td>0- 35</td>
-                                    <td>&#62; 34</td>
-                                    <th>&#62; 20</th>
-                                    <th>0 - 100</th>
-                                    <th>1</th>
+                                    <td>&#62;34</td>
+                                    <td>&#62;20</td>
+                                    <td>&#62;2'000</td>
                                 </tr>
                                 <tr>
-                                    <th>35 - 45</th>
-                                    <th>26 - 34</th>
-                                    <th>15 - 20</th>
-                                    <th>100 - 200</th>
-                                    <th>2</th>
+                                    <td>2</td>
+                                    <td>35-45</td>
+                                    <td>26-34</td>
+                                    <td>15-20</td>
+                                    <td>1'500-2'000</td>
                                 </tr>
                                 <tr>
-                                    <th>45 - 55</th>
-                                    <th>18 - 26</th>
-                                    <th>10 - 15</th>
-                                    <th>200 - 300</th>
-                                    <th>3</th>
+                                    <td>3</td>
+                                    <td>45-55</td>
+                                    <td>18-26</td>
+                                    <td>10-15</td>
+                                    <td>1'000-1'500</td>
                                 </tr>
                                 <tr>
-                                    <th>55 - 65</th>
-                                    <th>10 - 18</th>
-                                    <th>5 - 10</th>
-                                    <th>300 - 400</th>
-                                    <th>4</th>
+                                    <td>4</td>
+                                    <td>55-65</td>
+                                    <td>10-18</td>
+                                    <td>5-10</td>
+                                    <td>500-1'000</td>
                                 </tr>
                                 <tr>
-                                    <th>&#62; 65</th>
-                                    <th>0 - 10</th>
-                                    <th>0 - 5</th>
-                                    <th>400 - 500</th>
-                                    <th>5</th>
+                                    <td>5</td>
+                                    <td>&#62;65</td>
+                                    <td>0-10</td>
+                                    <td>0-5</td>
+                                    <td>0-500</td>
                                 </tr>
                             </table>
 
+                            <img data-src="images/mermaid-overview.svg" style="max-width:100%"></img> 
                         </div>
                     </section>
                 </section>
                 <section>
                     <section>
-                        An introduction to plugins <br> <br>
-                    </section> 
+                        QGIS Plugins <br> <br>
+
+                        <i class="fa-solid fa-plug fa-9x"></i>
+                    </section>
                     <section>
                         <ul>
                             <li class="fragment">Vanilla QGIS is lightweight with limited features</li>
@@ -513,15 +476,24 @@
                     </section>
 
                     <section>
+                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+                        Demo: Installing QuickMapService Plugin <br> <br>
+                        
+                    </section> 
+                    <section>
                         <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
 
-                        Install the QuickMapService Plugin<br> <br>
+                        Exercise: Install the QuickMapService Plugin<br> <br>
 
-                        <i class="fa-solid fa-hourglass"></i> 5 Minutes
+                        <i class="fa-solid fa-hourglass"></i>
+                        <countdown time="300" autostart="yes" />
                     </section>
                 </section>
                 <section>
-                    <section>Workshop: Graphical Model Builder</section>
+                    <section>
+                        <i class="fa-solid fa-hammer"></i> <br> <br> 
+                        Workshop: Graphical Model Builder</section>
+                    
                     <aside class="notes">
                         <ul>
                             <li>demonstrate building a model to mimick the "euclidean distance" fuction in QGIS</li>
@@ -533,11 +505,24 @@
                 </section>
                 <section>
                     <section>Sentinel Data in QGIS</section>
-                    <section>Download the Sentinel Data from Moodle, extract the files to a reasonable location and browse to that location within QGIS</section>
+                    <section>
+
+
+                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+                        Exercise: <br><br> 
+                        <ul>
+                            <li>Download Sentinel data from moodle</li>
+                            <li>Extract to reasonable location</li>
+                            <li>browse to that location within QGIS Browser</li>
+                    </ul>
+                    <br> <br>
+                        <i class="fa-solid fa-hourglass"></i>
+                        <countdown time="300" autostart="yes" />
+                        </section>
                     <section>
                         <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
 
-                        Demo: Creating a<em>true colour image</em> from the red (4), green (3) and blue (2) bands 
+                        Demo: Creating a <em>true colour image</em> from the red (4), green (3) and blue (2) bands 
                         <aside class="notes">
                             <ul>
                                 <li>Import the three bands into qgis and rename them</li>
@@ -574,37 +559,27 @@
                     </section>
                     <section> 
 
-                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
-                        Demo: Calculating the normalized difference vegetation index (NDVI). <br><br>
+                        Calculating the normalized difference vegetation index (NDVI). <br><br>
+                        <div class="fragment">
                         <i class="fa-solid fa-quote-left fa-2x fa-pull-left"></i>
                         ... a simple indicator that can be used to analyze remote sensing measurements, assessing whether or not the target being observed contains live green vegetation.
+                        </div>
                         <aside class="notes"> 
 
                         </aside>
                     </section>
                     <section>
                         <img src="images/ndvi-united-states-1.webp">
-                        NDVI always ranges from -1 to +1
+                        <figcaption style="font-size:smaller">
+                            NDVI ranges from -1 to +1 and is calculated as  $\frac{\text{NIR}-\text{Red}}{\text{NIR}+\text{Red}}$
+                        </figcaption>
                     </section>
+                    <section><img data-src="images/ndvi.png"> </section>
                     <section>
-                        <div class="pull-left">
-                            \[\begin{aligned}
-                            \text{NDVI}&amp; = \frac{\text{NIR}-\text{Red}}{\text{NIR}+\text{Red}} \\
-                            \end{aligned} \]
-                        </div>
 
-                        <div class="pull-right">
+                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+                        Demo: Visualizing NDVI <br> <br>
 
-                            <table cellspacing="0" style="font-size:smaller">
-                                <tr>
-                                    <td>Near Infrared (NIR)</td>
-                                    <td>Band 8</td>
-                                </tr>
-                                <tr>
-                                    <td>Red (R)</td>
-                                    <td>Band 4</td>
-                                </tr>
-                            </table>
                             <aside class="notes">
                                 <ul>
                                     <li>Import the bands 8 (nir) and 4 (red)</li>
@@ -615,10 +590,8 @@
                                     <li>Run function and visualize with singleband pseudocolour ranging from -1 to 1, linear interpolation, red to green and try different modes (continuous, quantile)</li>
                                 </ul>
                             </aside>
-                        </div>
 
                     </section>
-                    <section><img data-src="images/ndvi.png"> </section>
                 </section>
             </div>
 
@@ -639,7 +612,7 @@
                     {src:"reveal.js/plugin/countdown/countdown.js"},
                 ],
                 hash: true,
-                countdown: { defaultTime: 600, autostart: "no"},
+                countdown: { defaultTime: 600, autostart: "yes"},
                 // Learn about plugins: https://revealjs.com/plugins/
                 plugins: [ RevealHighlight, RevealNotes, RevealZoom, RevealMath],
             });
