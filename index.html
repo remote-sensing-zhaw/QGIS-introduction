@@ -56,6 +56,27 @@
                             <i class="fa-solid fa-envelope fa-fw"></i> rata@zhaw.ch <br> 
                         </div>
                     </section>
+                    <section>
+                        <div style="display:grid;grid-template-columns:repeat(4, auto)">
+                            <div>
+                                <i class="fa-solid fa-bullhorn" style=""></i>
+                                Inputs
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-clapperboard"></i>
+                                Demos
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-person-biking" style=""></i>
+                                Exercises
+                            </div>
+                            <div>
+
+                                <i class="fa-solid fa-hammer"></i>
+                                Workshops
+                            </div>
+                        </div>
+                    </section>
                 </section>
                 <section> 
                     <section> Why QGIS?  
@@ -100,7 +121,9 @@
                     </section> 
                     <section data-background-image="images/oasis-wallpaper.jpg">
                         <div style="color:black;">The transition will be hard</div>
-                        <div style:"color:black;" class="fragment"> ..brace yourselves </div>
+                        <div style:"color:black;" class="fragment highlight-blue"> ..brace yourselves </div>
+                        <img data-src="images/qgis-icon.png" width="100px" style="position:absolute;right:-10%">
+                        <img data-src="images/arcgis-icon.png" width="100px" style="position:absolute;left:-10%">
                         <aside class="notes">
 
                         </aside>
@@ -113,15 +136,15 @@
                     </section> 
                     <section>
                         <style>
-                            #comparison td {
-                                border-bottom: 0px;
-                            }
+                        #comparison td {
+                        border-bottom: 0px;
+                        }
                         </style>
                         <table id="comparison" cellspacing="0" cellpadding="0" style="font-size:smaller; border:none; border-collapse:collapse"> 
                             <tr> 
                                 <th> </th> 
                                 <th> ArcGIS <img data-src="images/arcgis-icon.png" style="height:30px"> </th> 
-                                <th> QGIS <img data-src="images/qgis-icon.png" style="height:50px"></th> 
+                                <th> QGIS <img data-src="images/qgis-icon.png" style="height:30px"></th> 
                             </tr>
                             <tr class="fragment">
                                 <td> Point of contact</td> 
@@ -140,12 +163,12 @@
                             </tr> 
                             <tr class="fragment"> 
                                 <td> Documentation </td> 
-                                <td> Excellent, very visual</td> 
-                                <td> Poor, very geeky </td> 
+                                <td> Excellent</td> 
+                                <td> Poor (geeky)</td> 
                             </tr> 
                             <tr class="fragment">
                                 <td> User Interface (UX)</td>
-                                <td> Sleek, self explaining </td>
+                                <td> Sleek/responsive </td>
                                 <td> Outdated </td> 
                             </tr> 
                             <tr class="fragment">
@@ -266,7 +289,7 @@
                     <section>
                         <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
 
-                        Demo: Import <code>dhm25m</code> into QGIS
+                        Demo: Raster data in QGIS
                         <aside class="notes">
                             <ul>
                                 <li>doubleclick or right click→ Add layer to project</li>
@@ -304,17 +327,21 @@
                     <section>
                         <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
 
-                        Exercise: Import the raster datasets into QGIS and play around with symobology <br> <br> 
+                        Exercise:<br> <br>
+
+                        <p> Import the raster datasets into QGIS and play around with symobology <br> <br> </p><br> <br>
+
+                        </p> 
 
                         <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="600" autostart="yes" />
+                        <countdown time="900" autostart="yes" />
 
                     </section>
 
                     <section>
                         <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
 
-                        Demo: Import <code>Waldgebiete</code> into QGIS
+                        Demo: vector data in QGIS
                         <aside class="notes">
                             <ul>
                                 <li>Open Attribute Table</li>
@@ -392,12 +419,12 @@
                     </section>
                     <section>
                         <div style="float:left; width:40%">
-                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+                            <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
 
-                        Exercise: Complete the MCA<br> <br>
+                            Exercise: Complete the MCA<br> <br>
 
-                        <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="900" autostart="yes" />
+                            <i class="fa-solid fa-hourglass"></i>
+                            <countdown time="1200" autostart="yes" />
                         </div>
                         <div style="float:right;width:60%;text-align:right">
                             <table cellspacing="0" style="font-size:small; background-color: #04AA6D;margin-right: 0px;width:100%">
@@ -478,7 +505,7 @@
                     <section>
                         <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
                         Demo: Installing QuickMapService Plugin <br> <br>
-                        
+
                     </section> 
                     <section>
                         <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
@@ -490,35 +517,7 @@
                     </section>
                 </section>
                 <section>
-                    <section>
-                        <i class="fa-solid fa-hammer"></i> <br> <br> 
-                        Workshop: Graphical Model Builder</section>
-                    
-                    <aside class="notes">
-                        <ul>
-                            <li>demonstrate building a model to mimick the "euclidean distance" fuction in QGIS</li>
-                            <li>Explain Model Inputs and Algorithms</li>
-                            <li>Save the model to the project. Show the alternative of saving the model to a file</li>
-                            <li>Execute the model</li>
-                        </ul>
-                        <aside>
-                </section>
-                <section>
                     <section>Sentinel Data in QGIS</section>
-                    <section>
-
-
-                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
-                        Exercise: <br><br> 
-                        <ul>
-                            <li>Download Sentinel data from moodle</li>
-                            <li>Extract to reasonable location</li>
-                            <li>browse to that location within QGIS Browser</li>
-                    </ul>
-                    <br> <br>
-                        <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="300" autostart="yes" />
-                        </section>
                     <section>
                         <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
 
@@ -538,13 +537,19 @@
                     </section>
 
                     <section>
+
+
                         <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
-
-                        Exercise: Create a RGB Image <br> <br>
-
+                        Exercise: <br><br> 
+                        <ul>
+                            <li>Download Sentinel data from moodle</li>
+                            <li>Extract to reasonable location</li>
+                            <li>browse to that location within QGIS Browser</li>
+                            <li>Create an RGB Image</li>  
+                        </ul>
+                        <br> <br>
                         <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="300" autostart="yes" />
-
+                        <countdown time="600" autostart="yes" />
 
                     </section>
                     <section>
@@ -561,8 +566,8 @@
 
                         Calculating the normalized difference vegetation index (NDVI). <br><br>
                         <div class="fragment">
-                        <i class="fa-solid fa-quote-left fa-2x fa-pull-left"></i>
-                        ... a simple indicator that can be used to analyze remote sensing measurements, assessing whether or not the target being observed contains live green vegetation.
+                            <i class="fa-solid fa-quote-left fa-2x fa-pull-left"></i>
+                            ... a simple indicator that can be used to analyze remote sensing measurements, assessing whether or not the target being observed contains live green vegetation.
                         </div>
                         <aside class="notes"> 
 
@@ -577,21 +582,35 @@
                     <section><img data-src="images/ndvi.png"> </section>
                     <section>
 
-                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
-                        Demo: Visualizing NDVI <br> <br>
+                        <i class="fa-solid fa-hammer fa-2x"></i> <br> <br>
+                        Workshop: Calculating NDVI <br> <br>
 
-                            <aside class="notes">
-                                <ul>
-                                    <li>Import the bands 8 (nir) and 4 (red)</li>
-                                    <li>Rename the bands to their respective names (NIR and Red)</li>
-                                    <li>Open the Raster calculator</li>
-                                    <li>Input the Formula</li>
-                                    <li>Choose a Reference Layer (to automatically asign Cellsize, CRS and Extent)</li>
-                                    <li>Run function and visualize with singleband pseudocolour ranging from -1 to 1, linear interpolation, red to green and try different modes (continuous, quantile)</li>
-                                </ul>
-                            </aside>
+                        <aside class="notes">
+                            <ul>
+                                <li>Import the bands 8 (nir) and 4 (red)</li>
+                                <li>Rename the bands to their respective names (NIR and Red)</li>
+                                <li>Open the Raster calculator</li>
+                                <li>Input the Formula</li>
+                                <li>Choose a Reference Layer (to automatically asign Cellsize, CRS and Extent)</li>
+                                <li>Run function and visualize with singleband pseudocolour ranging from -1 to 1, linear interpolation, red to green and try different modes (continuous, quantile)</li>
+                            </ul>
+                        </aside>
 
                     </section>
+                </section>
+                <section>
+                    <section>
+                        <i class="fa-solid fa-hammer"></i> <br> <br> 
+                        Workshop: Graphical Model Builder</section>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>demonstrate building a model to mimick the "euclidean distance" fuction in QGIS</li>
+                            <li>Explain Model Inputs and Algorithms</li>
+                            <li>Save the model to the project. Show the alternative of saving the model to a file</li>
+                            <li>Execute the model</li>
+                        </ul>
+                        <aside>
                 </section>
             </div>
 
