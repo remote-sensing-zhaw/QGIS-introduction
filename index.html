@@ -8,12 +8,11 @@
             />
 
         <title>Introduction to QGIS</title>
-
         <!---<link rel="stylesheet" href="reveal.js/dist/reset.css" />-->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
         <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
         <link rel="stylesheet" href="reveal.js/dist/theme/league.css" id="theme" />
-        <link rel="stylesheet" href="timer.css" />
-        <link rel="stylesheet" href="timer2.css" />
         <style>
             .pull-left {
                 float: left;
@@ -49,7 +48,7 @@
                         <ul>
                             <li>Widely used and very popular</li>
                             <li>Free and Open Source </li>
-                            <li>Cross Plattform (Windows, MacOS &amp; Linux</li> 
+                            <li>Cross Plattform (Windows, MacOS &amp; Linux)</li> 
                         </ul>
                     </section>
                     <section> Widely used and very popular </section> 
@@ -154,7 +153,10 @@
                     </section>
                 </section>
                 <section>
-                    <section>A refresher on Coordinate Reference Systems and Projections</section>
+                    <section>A refresher on Coordinate Reference Systems and Projections <br> <br> 
+
+<i class="fa-solid fa-earth-africa fa-5x"></i>
+                    </section>
                     <section>
                         WGS84 is a <em>Geographic Coordinate System</em>
                         <img data-src="images/LatLonOnEarth.png">
@@ -197,7 +199,7 @@
                         <div class="pull-left">
                             <img data-src="images/epsg2056.png">
                         </div>
-                        <div class="pull-right">
+                         <div class=
                             CH1903+ LV95 <br><br> 
                             <ul>
                                 <li class="fragment highlight-red">EPSG Code: 2056</li>
@@ -223,7 +225,9 @@
                         </aside>
                     </section>
                     <section>
-                        Import <code>dhm25m</code> into QGIS
+                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+
+                        Demo: Import <code>dhm25m</code> into QGIS
                         <aside class="notes">
                             <ul>
                                 <li>doubleclick or right click→ Add layer to project</li>
@@ -236,16 +240,14 @@
                             </ul>
                         </aside>
                     </section>
+
                     <section>
-                        Your turn! <br> <br> 
+                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
 
                         Import the other raster datasets into QGIS and play around with symobology <br> <br> 
 
-                        You have 5 Minutes!
-                    </section>
+                        <i class="fa-solid fa-hourglass"></i> 5 Minutes
 
-                    <section>
-                        <div id="app"> </div> 
                     </section>
 
                     <!--https://codepen.io/jmikey/pen/ARjONp
@@ -272,13 +274,24 @@
                             </ul>
                         </aside>
                     </section>
-                    <section>
-                        Your turn! 
-                    </section>
                 </section>
+                
+                    <section>
+                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+
+                        Exercise: Import the other datasets into QGIS<br> <br>
+
+                        <i class="fa-solid fa-hourglass"></i> 5 Minutes
+
+                    </section>
                 <section>
                     <section>Rasterprocessing with QGIS </section>
                     <section>Finding suitable locations for wind turbines
+                        <ul>
+                            <li>Exlusion Areas</li>
+                            <li>Areas of Interest</li>
+                            <li>Acceptance</li>
+                        </ul>
                         <aside class="notes">
 
                         </aside>
@@ -308,7 +321,8 @@
                         </ul> 
                     </section>
                     <section>
-                        <img data-src="images/Prozessmodell_MCE_Wind_SZ_en.png"></img> 
+                        Process Modell for ArcGIS Pro
+                        <img data-src="images/mermaid-overview.svg" width = 80%></img> 
                         <aside class="notes">
                             <li>Euclidean distance to bewohnte Flächen, Nationale Schutzgebeiete, Waldgebiete + Seen</li>
                             <li>What does the tool "euclidean distance" actually do?</li>
@@ -319,9 +333,17 @@
                         </aside>
                     </section>
                     <section>
-                        Settlements
-                        <img data-src="images/mermaid-settlements.png"> 
-                        <table cellspacing="0" style="font-size:small">
+                        The ArcGIS Pro way: <br> <br> 
+                        <img data-src="images/mermaid-settlements1.svg">
+                        <aside class="notes">
+                            <li>live search for the euclidean distance in qgis</li>
+                            <li>live google the term qgis euclidean distance</li>
+                        </aside>
+                    </section>
+                    <section> 
+
+                        <img data-src="images/mermaid-settlements2.svg">
+                        <table cellspacing="0" style="font-size:small; background-color: #04AA6D; float:right" class="fragment">
                             <tr>
                                 <th>Distance (meters)</th>
                                 <th>Class</th>
@@ -347,36 +369,180 @@
                                 <td>5</td>
                             </tr>
                         </table>
+                        <aside class="notes">
+                            <ul>
+                                <li>demonstrate the necessary steps</li> 
+                                <li>Rasterize: You MUST specify an extent</li>
+                                <li>Proximity: You MUST choose Distance units: Georeferenced units to get a distance in Meters (instead of cell numbers)</li>
+                                <li>Demonstrate reclassify by table</li>
+                                <li>Their turn: Repeat the steps rasterize, proximity, reclassify</li>
+                            </ul>
+
+                        </aside>
                     </section>
                     <section>
+                        <div style="float:left;width:70%">
+                            <img data-src="images/mermaid-overview.svg"></img> 
+                        </div>
+                        <div style="float:right;width:30%">
+                            <table cellspacing="0" style="font-size:small; background-color: #04AA6D;">
+                                <tr>
+                                    <th>Windspeed (dm/s)</th>
+                                    <th>Icing Frequency (d/a)</th>
+                                    <th>Slope (Degrees)</th>
+                                    <th>Distance to Protected Areas</th>
+                                    <th>Class</th>
+                                </tr>
+                                <tr>
+                                    <td>0- 35</td>
+                                    <td>&#62; 34</td>
+                                    <th>&#62; 20</th>
+                                    <th>0 - 100</th>
+                                    <th>1</th>
+                                </tr>
+                                <tr>
+                                    <th>35 - 45</th>
+                                    <th>26 - 34</th>
+                                    <th>15 - 20</th>
+                                    <th>100 - 200</th>
+                                    <th>2</th>
+                                </tr>
+                                <tr>
+                                    <th>45 - 55</th>
+                                    <th>18 - 26</th>
+                                    <th>10 - 15</th>
+                                    <th>200 - 300</th>
+                                    <th>3</th>
+                                </tr>
+                                <tr>
+                                    <th>55 - 65</th>
+                                    <th>10 - 18</th>
+                                    <th>5 - 10</th>
+                                    <th>300 - 400</th>
+                                    <th>4</th>
+                                </tr>
+                                <tr>
+                                    <th>&#62; 65</th>
+                                    <th>0 - 10</th>
+                                    <th>0 - 5</th>
+                                    <th>400 - 500</th>
+                                    <th>5</th>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        An introduction to plugins <br> <br>
+                    </section> 
+                    <section>
+                        <ul>
+                            <li class="fragment">Vanilla QGIS is lightweight with limited features</li>
+                            <li class="fragment">Additional features are developped by the community</li>
+                            <li class="fragment">These features are implemented as "Plugins"</li>
+                            <li class="fragment">These plugins are made available via a central repository</li>
+                        </ul>
+                        <aside = class="notes">
+                            demonstrate: 
+                            <ul>
+                                <li>Plugins Tab</li> 
+                                <li>Repo URL </li>
+                                <li>How to install and use QuickMapServices</li> 
+                                <li>How to find help to a specific plugin (where is it accessible?)</li>
+
+
+                            </ul>
+                        </aside>
+                    </section>
+                
+                    <section>
+                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+
+                        Install the QuickMapService Plugin<br> <br>
+
+                        <i class="fa-solid fa-hourglass"></i> 5 Minutes
+                    </section>
+                </section>
+                <section>
+                    <section>Workshop: Graphical Model Builder</section>
+                    <aside class="notes">
+                        <ul>
+                            <li>demonstrate building a model to mimick the "euclidean distance" fuction in QGIS</li>
+                            <li>Explain Model Inputs and Algorithms</li>
+                            <li>Save the model to the project. Show the alternative of saving the model to a file</li>
+                            <li>Execute the model</li>
+                        </ul>
+                        <aside>
+                </section>
+                <section>
+                    <section>Sentinel Data in QGIS</section>
+                    <section>Download the Sentinel Data from Moodle, extract the files to a reasonable location and browse to that location within QGIS</section>
+                    <section>
+                        First, let's create a "true colour image" from the red (4), green (3) and blue (2) bands 
+                        <aside class="notes">
+                            <ul>
+                                <li>Import the three bands into qgis and rename them</li>
+                                <li>Build virtual raster tool</li>
+                                <li>Choose the three layers and reorder them</li>
+                                <li>Choose the option "place each input raster into a separate band"</li>
+                                <li>Save the output file explicitly</li>
+                                <li>view the vrt file with a text editor</li>
+                                <li>demonstrate how the vrt can be exported to a geotif</li>
+                                <li>demonstrate how merging can be done via the "merge tool"</li>
+                            </ul>
+                        </aside>
+                    </section>
+                    <section>
+                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+
+                        Exercise: Create a NIR-GB Image <br> <br>
+
+                        <i class="fa-solid fa-hourglass"></i> 5 Minutes
+
+                    </section>
+                    <section> 
+                        Let's calculate the normalized difference vegetation index (NDVI). <br><br>
+  <i class="fa-solid fa-quote-left fa-2x fa-pull-left"></i>
+                    ... a simple indicator that can be used to analyze remote sensing measurements, often from a space platform, assessing whether or not the target being observed contains live green vegetation.
+                        <aside class="notes"> 
+
+                        </aside>
+                    </section>
+                    <section>
+                        <div class="pull-left">
+                        \[\begin{aligned}
+                        \text{NDVI}&amp; = \frac{\text{NIR}-\text{Red}}{\text{NIR}+\text{Red}} \\
+                        \end{aligned} \]
+                        </div>
+
+                        <div class="pull-right">
 
                         <table cellspacing="0" style="font-size:smaller">
                             <tr>
-                                <th>Windspeed (dm/s)</th>
-                                <th>Class</th>
+                                <td>Near Infrared (NIR)</td>
+                                <td>Band 8</td>
                             </tr>
                             <tr>
-                                <td>0- 35</td>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>35 - 45</th>
-                                <th>2</th>
-                            </tr>
-                            <tr>
-                                <th>45 - 55</th>
-                                <th>3</th>
-                            </tr>
-                            <tr>
-                                <th>55 - 65</th>
-                                <th>4</th>
-                            </tr>
-                            <tr>
-                                <th>&#62; 65</th>
-                                <th>5</th>
+                                <td>Red (R)</td>
+                                <td>Band 4</td>
                             </tr>
                         </table>
+                        <aside class="notes">
+                            <ul>
+                                <li>Import the bands 8 (nir) and 4 (red)</li>
+                                <li>Rename the bands to their respective names (NIR and Red)</li>
+                                <li>Open the Raster calculator</li>
+                                <li>Input the Formula</li>
+                                <li>Choose a Reference Layer (to automatically asign Cellsize, CRS and Extent)</li>
+                                <li>Run function and visualize with singleband pseudocolour ranging from -1 to 1, linear interpolation, red to green and try different modes (continuous, quantile)</li>
+                            </ul>
+                        </aside>
+                        </div>
+
                     </section>
+                    <section><img data-src="images/ndvi.png"> </section>
                 </section>
             </div>
 
@@ -387,9 +553,7 @@
         <script src="reveal.js/plugin/markdown/markdown.js"></script>
         <script src="reveal.js/plugin/highlight/highlight.js"></script>
         <script src="reveal.js/plugin/zoom/zoom.js"></script>
-        <script src="timer.js"></script>
-        <!--<script src="timer2.js"></script> --> 
-        <!--<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>-->
+        <script src="reveal.js/plugin/math/math.js"></script>
         <script>
             // More info about initialization & config:
             // - https://revealjs.com/initialization/
@@ -398,7 +562,7 @@
                 hash: true,
 
                 // Learn about plugins: https://revealjs.com/plugins/
-                plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom],
+                plugins: [ RevealHighlight, RevealNotes, RevealZoom, RevealMath],
             });
         </script>
     </body>

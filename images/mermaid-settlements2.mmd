@@ -1,0 +1,24 @@
+
+graph LR
+    
+    A["Settlement Areas"] --> B
+    A --> Q
+    D --> E["Grading Settlements"]
+    B --> D(["Reclassify"])
+    R --> D
+    subgraph ArcGIS Pro
+    B(["Euclidean Distance"])
+    end
+    subgraph QGIS
+    Q(["Rasterize"]) --> R(["Proximity"])
+    end
+
+    classDef process fill:#00a900
+    class B,D,Q,R process;
+
+
+
+
+
+
+

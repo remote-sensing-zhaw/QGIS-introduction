@@ -18,4 +18,33 @@ graph LR
 
 
 
+graph LR
+    subgraph two
+    1A["Settlement Areas"] --> 1B(["Euclidean Distance"]) --> 1C(["Reclassify"]) --> X(["Sum"])
+    2A["National Protected Areas"] --> 2B(["Euclidean Distance"]) --> 2C(["Reclassify"]) --> X
+    3A["Woodland Areas"] --> 3B(["Euclidean Distance"]) --> 3C(["Reclassify"]) --> X
+    4A["Lakes"] --> 4B(["Euclidean Distance"]) --> 4C(["Reclassify"]) --> X
+    5A["Roads"] --> 5B(["Euclidean Distance"]) --> 5C(["Reclassify"]) --> X
+    6A["DHM"] --> 6B(["Slope"]) --> 6C(["Reclassify"]) --> X
+    7A["Icing Frequency"] --> 7C(["Reclassify"]) --> X
+    8A["Avarage Wind Speed"] --> 8C(["Reclassify"]) --> X
+    end
+    subgraph one
+    1A --> 9A(["Merge"])
+    2A --> 9A
+    3A --> 9A
+    4A --> 9A
+    9A --> 9B(["Dissolve"]) --> 9C(["Feature to Raster"]) --> 9D(["Reclassify"])
+
+    end
+    9D --> 10A(["Overlay"])
+    X --> 10A
+    10A --> 100A["Result"]
+
+    classDef process fill:#00a900
+    class B,C,E,F,H,I,K,L,N,O,Q,R,X process;
+
+
+
+
 
