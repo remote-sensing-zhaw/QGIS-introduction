@@ -9,13 +9,11 @@ graph LR
     end
     subgraph Areas of Interest
     7A["Avarage Wind Speed"] --> 8C(["Reclassify"])
-    6A["Icing Frequency"] --> 7C(["Reclassify"])
     5A["DHM"] --> 6B(["Slope"]) --> 6C(["Reclassify"])
     4A["Roads"] --> 5B(["Euclidean Distance"]) --> 5C(["Reclassify"])
     end
 
-    8C --> X(["Sum"])
-    7C --> X
+    8C --> X(["Mean"])
     6C --> X
     5C --> X
 
