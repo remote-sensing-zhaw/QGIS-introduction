@@ -1,724 +1,928 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-            />
 
-        <title>Introduction to QGIS</title>
-        <link rel="stylesheet" href="reveal.js/dist/reset.css" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-        <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
-        <link rel="stylesheet" href="reveal.js/dist/theme/league.css" id="theme" />
-        <style>
-            .pull-left {
-                float: left;
-                width: 47%;
-            }
-            .pull-right {
-                float: right;
-                width: 47%;
-            }
-            ul, li{
-                font-size:smaller;
-            }
-            figcaption{
-                font-size: smaller
-            }
+    <title>Introduction to QGIS</title>
+    <link rel="stylesheet" href="reveal.js/dist/reset.css" />
 
-        </style>
-        <!-- Theme used for syntax highlighted code -->
-        <link
-            rel="stylesheet"
-            href="reveal.js/plugin/highlight/monokai.css"
-            id="highlight-theme"
-            />
-    </head>
-    <body>
-        <div class="reveal">
-            <div class="slides">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="reveal.js/dist/theme/league.css" id="theme" />
+    <style>
+        .pull-left {
+            float: left;
+            width: 47%;
+        }
+
+        .pull-right {
+            float: right;
+            width: 47%;
+        }
+
+        ul,
+        li {
+            font-size: smaller;
+        }
+
+        figcaption {
+            font-size: smaller
+        }
+    </style>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="reveal.js/plugin/highlight/monokai.css" id="highlight-theme" />
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
                 <section>
-                    <section>
-                        Introduction to QGIS <br> <br>
-                        <i class="fa-solid fa-rocket fa-3x"></i>
-                    </section>
-                    <section>
-                        <div class="pull-left" style="text-align:right">
-                            <img data-src="https://www.zhaw.ch/forschungsdaten/portraet/images/rata.gif" style="border-radius:100%" width="40%">
-
-                        </div>
-                        <div class="pull-right", style="font-size:small; text-align:left">
-                            <b>Nils Ratnaweera</b><br> <br>
-
-                            ZHAW School of Life Sciences and Facility Management<br>
-                            Institute of Natural Resource Sciences<br>
-                            Grüentalstrasse 14<br>
-                            8820 Wädenswil <br><br> 
-
-                            <i class="fa-solid fa-phone fa-fw"></i> +41 (0) 58 934 55 63 <br>
-                            <i class="fa-solid fa-envelope fa-fw"></i> rata@zhaw.ch <br> 
-                        </div>
-                    </section>
-                    <section>
-                        <div style="display:grid;grid-template-columns:auto auto;text-align:left; ">
-                            <div>Lesson 1</div>
-                            <div>Introduction and first step in QGIS</div>
-                            <div>Lesson 2</div>
-                            <div>Raster and vector data in QGIS </div>
-                            <div>Lesson 3</div>
-                            <div>MCE and plugins in QGIS</div>
-                            <div>Lesson 4</div>
-                            <div>Sentinel data in QGIS</div>
-                        </div>
-                    </section>
-                    <section>
-                        <div style="display:grid;grid-template-columns:repeat(4, auto);grid-row-gap:50px">
-                            <div>
-                                <i class="fa-solid fa-bullhorn" style=""></i>
-                                Inputs
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-clapperboard"></i>
-                                Demos
-                            </div>
-                            <div>
-                                <i class="fa-solid fa-person-biking" style=""></i>
-                                Exercises
-                            </div>
-                            <div>
-
-                                <i class="fa-solid fa-hammer"></i>
-                                Workshops
-                            </div>
-                            <div class="fragment">I talk</div>
-                            <div class="fragment">I show</div>
-                            <div class="fragment">you do</div>
-                            <div class="fragment">we do</div>
-                        </div>
-                    </section>
-                </section>
-                <section> 
-                    <section> 
-
-                        Why QGIS?  <br><br> 
-
-                        <i class="fa-solid fa-circle-question fa-3x"></i>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>You just spent an entire semester learning ArcGIS, why do you have to switch?</li>
-                            </ul>
-                        </aside>
-                    </section>
-
-                    <section> 
-                        <ul>
-                            <li>Widely used and very popular</li>
-                            <li>Free and Open Source </li>
-                            <li>Cross-platform (Windows, MacOS &amp; Linux)</li> 
-                        </ul>
-                    </section>
-                    <section> Widely used and very popular?? </section> 
-                    <section> 
-                        <blockquote class="twitter-tweet" data-lang="en" data-theme="light"><p lang="en" dir="ltr">We are developing a new course on remote sensing at our uni. What software would you primarily base it on: <a href="https://twitter.com/ArcGISPro?ref_src=twsrc%5Etfw">@ArcGISPro</a> or <a href="https://twitter.com/qgis?ref_src=twsrc%5Etfw">@QGIS</a> ? Pure <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> or <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a> is not an option 😔 <a href="https://t.co/G4I6izCqhF">pic.twitter.com/G4I6izCqhF</a></p>&mdash; Nils Ratnaweera (@NRatnaweera) <a href="https://twitter.com/NRatnaweera/status/1447974898811424775?ref_src=twsrc%5Etfw">October 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-                    </section> 
-                    <section>
-                        <div> <img data-src="images/twitter2.png" style="height: 650px;"> </img> </div> 
-                    </section>
-                    <section><img data-src="images/arcgis-qgis.png"> 
-                        <figcaption>Source: Data from stackoverflow, visualized by N. Ratnaweera </figcaption> 
-                    </section>
-                    <section> 
-                        Free and Open Source </br> 
-
-                            <ul> 
-                                <li> <i class="fa-solid fa-beer-mug-empty fa-fw"></i> Free as in free beer</li>
-                                <li><i class="fa-solid fa-bullhorn fa-fw"></i> Free as in free speech</li>
-                            </ul> 
-                            <aside class="notes">
-                                <ul>
-                                    <ul>beer: free of charge</ul>
-                                    <ul>speech a matter of liberty:</ul>
-                                    <ul>
-                                        <li>use the software as you like</li>
-                                        <li>see how the software works (source code)</li>
-                                        <li>redistribute the software</li>
-                                        <li>improve the software</li>
-                                    </ul>
-                                </ul>
-                            </aside>
-                    </section>
-                    <section> 
-                        Cross-platform <br> <br>
-                        <i class="fa-brands fa-linux fa-5x fa-fw"></i>   
-                        <i class="fa-brands fa-windows fa-5x fa-fw"></i>
-                        <i class="fa-brands fa-apple fa-5x fa-fw"></i> 
-                    </section> 
-                    <section data-background-image="images/oasis-wallpaper.jpg">
-                        <div style="color:black;">The transition will be hard</div>
-                        <div style:"color:black;" class="fragment highlight-blue"> ..brace yourselves </div>
-                        <img data-src="images/qgis-icon.png" width="100px" style="position:absolute;right:-10%">
-                        <img data-src="images/arcgis-icon.png" width="100px" style="position:absolute;left:-10%">
-                        <aside class="notes">
-
-                        </aside>
-                    </section>
-                </section> 
-
-                <section> 
-                    <section> 
-
-                        How is QGIS different from ArcGIS? <br><br>
-
-                        <i class="fa-solid fa-jedi fa-3x"></i>
-                    </section> 
-                    <section>
-                        <small>An <em>opinionated</em> side by side comparison</small>
-                    </section>
-                    <section>
-                        <style>
-                        #comparison td {
-                        border-bottom: 0px;
-                        }
-                        </style>
-                        <table id="comparison" cellspacing="0" cellpadding="0" style="font-size:smaller; border:none; border-collapse:collapse"> 
-                            <tr> 
-                                <th> </th> 
-                                <th> ArcGIS <img data-src="images/arcgis-icon.png" style="height:30px"> </th> 
-                                <th> QGIS <img data-src="images/qgis-icon.png" style="height:30px"></th> 
-                            </tr>
-                            <tr class="fragment">
-                                <td> Point of contact</td> 
-                                <td> Single</td> 
-                                <td> none/multiple </td> 
-                            </tr> 
-                            <tr class="fragment"> 
-                                <td> Concept </td> 
-                                <td> Seamless</td> 
-                                <td> Modular </td> 
-                            </tr> 
-                            <tr class="fragment">
-                                <td> Community</td>
-                                <td> Weak</td>
-                                <td> Strong!</td>
-                            </tr> 
-                            <tr class="fragment"> 
-                                <td> Documentation </td> 
-                                <td> Excellent</td> 
-                                <td> Poor (geeky)</td> 
-                            </tr> 
-                            <tr class="fragment">
-                                <td> User Interface (UX)</td>
-                                <td> Sleek/responsive </td>
-                                <td> Outdated </td> 
-                            </tr> 
-                            <tr class="fragment">
-                                <td>Compliance w/ Open Standards (OGC)</td>
-                                <td>Poor</td>
-                                <td>High</td>
-                            </tr>
-                            <tr class="fragment">
-                                <td>Support for data formats</td>
-                                <td>Poor</td>
-                                <td>Rich</td>
-                            </tr>
-
-                        </table> 
-
-                    </section>
-                </section> 
-                <section>
-
-                    <section>First steps in QGIS <br> <br> 
-                        <i class="fa-solid fa-baby fa-3x"></i>
-                    </section> 
-                    <section> 
-                        <i class="fa-solid fa-hammer fa-2x"></i> <br> <br> 
-
-                        Workshop: First contact with QGIS <br> <br> 
-                        <aside class="notes">
-                            <ul>
-                                <li>Start up QGIS</li>
-                                <li>Change Icon Size</li>
-                                <li>Catalog+Content Pane</li>
-                                <li>Project CRS</li>
-                                <!--<li>Download Data from Moodle</li>
-                                    <li>Use the QGIS Browser to navigate to your data</li> -->
-                            </ul>
-                            <aside> 
-                    </section>
+                    Introduction to QGIS <br> <br>
+                    <i class="fa-solid fa-rocket fa-3x"></i>
                 </section>
                 <section>
-                    <section> Coordinate reference systems and projections <br> <br> 
+                    <div class="pull-left" style="text-align:right">
+                        <img data-src="https://www.zhaw.ch/forschungsdaten/portraet/images/rata.gif"
+                            style="border-radius:100%" width="40%">
 
-                        <i class="fa-solid fa-earth-africa fa-3x"></i>
-                    </section>
-                    <section>
-                        WGS84 is a <em>Geographic coordinate system</em>
-                        <img data-src="images/LatLonOnEarth.png">
-                    </section>
-                    <section>
-                        Geographic Coordinate Systems<br> <br>
-                        <ul>
-                            <li class="fragment">They see the world as a sphere </li>
-                            <li class="fragment">They use longitude and latitude</li>
-                            <li class="fragment">They are useful for global data</li>
-                            <li class="fragment">They are cumbersome for small-scale applications</li>
-                            <li class="fragment">The most important is WGS84</li>
-                        </ul>
-                    </section>
-                    <section>
-                        WGS84<br> <br>
-                        <div class="pull-left"> 
-                            <img data-src="images/LatLonOnEarth.png">
-                        </div> 
-                        <div class="pull-right"> 
-                            <ul>
-                                <li class="fragment"> EPSG Code: 4326 (!)</li>
-                                <li class="fragment"> W-E -180 to +180</li>
-                                <li class="fragment"> S-N -90 to +90</li> 
-                                <li class="fragment"> Switzerland</li>
-                                <ul>
-                                    <li class="fragment">W-E 5.9 - 10.4</li>
-                                    <li class="fragment">S-N 45.8 - 47.8 </li>
-                                </ul>
-                            </ul>
-                        </div>
-                    </section>
-                    <section>
-                        Projected Coordinate Systems <br> <br>
-                        <ul> 
-                            <li class="fragment">They abstract the world to a 2D-plane</li> 
-                            <li class="fragment">They use x/y or E/N coordinates </li> 
-                            <li class="fragment">They are useful for local (e.g. National) data</li> 
-                            <li class="fragment">Cannot be used for global data</li> 
-                            <li class="fragment">The most important (for us) are <code>CH1903+LV95</code> and <code>CH1903 LV03</code> </li> 
-                        </ul>
-                    </section>
-                    <section data-transition="fade">
-                        <div class="pull-left">
-                            <img data-src="images/epsg2056.png">
-                        </div>
-                        <div class="pull-right">
-                            <code>CH1903+ LV95</code> <br><br> 
-                            <ul>
-                                <li class="fragment">EPSG Code: 2056 (!)</li>
-                                <li class="fragment">new swiss coordinate system</li>
-                                <li class="fragment">centered on Bern</li>
-                                <li class="fragment">W-E <code>2'400'000-2'800'000</code></li>
-                                <li class="fragment">S-N <code>1'100'000-1'300'000</code></li>
-                            </ul>
-                        </div>
-                    </section>
-                    <section data-transition="none">
-                        <div class="pull-left">
-                            <img data-src="images/epsg21781.png">
-                        </div>
-                        <div class="pull-right">
-                            <code> CH1903 LV95</code> <br><br> 
-                            <ul>
-                                <li>EPSG Code: 21781 (!) </li>
-                                <li><u>old</u>  swiss coordinate system</li>
-                                <li>centered on Bern</li>
-                                <li>W-E <code>400'000-800'000</code></li>
-                                <li>S-N <code>100'000-300'000</code></li>
-                            </ul>
-                        </div>
-                    </section>
+                    </div>
+                    <div class="pull-right" , style="font-size:small; text-align:left">
+                        <b>Nils Ratnaweera</b><br> <br>
+
+                        ZHAW School of Life Sciences and Facility Management<br>
+                        Institute of Natural Resource Sciences<br>
+                        Grüentalstrasse 14<br>
+                        8820 Wädenswil <br><br>
+
+                        <i class="fa-solid fa-phone fa-fw"></i> +41 (0) 58 934 55 63 <br>
+                        <i class="fa-solid fa-envelope fa-fw"></i> rata@zhaw.ch <br>
+                    </div>
                 </section>
                 <section>
-                    Break <br> <br> 
-                    <i class="fa-solid fa-mug-saucer fa-3x"></i>
-                </section>
-                <section>
-                    <section> 
-                        Raster and vector data in QGIS<br> <br>
-
-                        <i class="fa-solid fa-screwdriver-wrench fa-3x"></i>
-
-                    </section>
-
-                    <section>
-                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
-
-                        Demo: Raster data in QGIS
-                        <aside class="notes">
-                            <ul>
-                                <li>doubleclick or right click→ Add layer to project</li>
-                                <li>View &rarr; Panels &rarr; Layer Styling</li>
-                                <li>Singleband Pseudocolour with discrete classes, raising the number of classes</li>
-                                <li>with linear interpolation and different colour ramps</li>
-                                <li>duplicate layer and show hillshade with different azimuth and z-factor</li>
-                                <li>duplicate layer and show contours</li> 
-
-                            </ul>
-                        </aside>
-                    </section>
-
-                    <section>
-                        What is a geopackage? <br> <br>
-                        <div style="float:left; width:30%">
-                            <img data-src="images/prefer-geopackage.png" width="100%">
-                            <figcaption style="font-size:small">Source: <a href="http://switchfromshapefile.org/">switchfromshapefiles.org</a></figcaption>
-                        </div> 
-                        <div style="float:right;width:70%">
-                            <ul>
-                                <li>a better alternative to the limited and proprietery formats <em>shapefile</em> and <em> geodatabase</em></li>
-                                <li>can contain vector and raster data</li>
-                                <li>can contain multiple layers</li>
-                            </ul>
-                        </div>
-                        <aside class="notes">
-                            <ul>
-                                <li>What is a geopackage? It's not an arcgis pro package but an alternative to file geodatabase and shapefiles</li>
-                                <li>Navigate to the data using the Browser pane. Add as a bookmark if desired</li>
-                                <li>What CRS does the dataset have? Check layer properties!</li>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section>
-                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
-
-                        Exercise:<br> <br>
-
-                        <p> Import the raster datasets into QGIS and play around with symobology <br> <br> </p><br> <br>
-
-                        </p> 
-
-                        <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="900" autostart="yes" />
-
-                    </section>
-
-                    <section>
-                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
-
-                        Demo: vector data in QGIS
-                        <aside class="notes">
-                            <ul>
-                                <li>Open Attribute Table</li>
-                                <li>Change Symbology</li>
-                                <ul>
-                                    <li>Simple Fill: Fill Colour, Stroke Colour, Stroke Width and Style</li>
-                                    <li>Gradient fill, hashed fill</li>
-                                    <li>Categorized </li> 
-                                    <li>Graduated</li>
-                                </ul>
-                            </ul>
-                        </aside>
-                    </section>
-                    <section>
-                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
-
-                        Exercise: Import the vector datasets into QGIS<br> <br>
-
-                        <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="600" autostart="yes" />
-
-                    </section>
-                </section>
-                <section>
-                    Break <br> <br> 
-                    <i class="fa-solid fa-mug-saucer fa-3x"></i>
-                </section>
-                <section>
-                    <section>
-
-                        Multicriteria analysis with QGIS <br> <br>
-
-                        <i class="fa-solid fa-chart-area fa-3x"></i>
-                    </section>
-                <section>
-                    Finding suitable locations for wind turbines <br> <br>
-                        <div class="pull-left">
-                            Exclusion areas <br> <br>
-                            <ul> 
-                                <li>Lakes</li>
-                                <li>National protected areas</li>
-                                <li>Minimum distance of 200 m from existing settlement areas</li>
-                            </ul>
-                        </div>
-                        <div class="pull-right">
-                            Areas of interest<br> <br>
-                            <ul>
-                                <li>Sufficient wind potential</li>
-                                <li>Low risk of icing</li>
-                                <li>Easy access (existing road and low gradient)</li>
-                            </ul> 
-                        </div>
-                    </section>
-                    <section>
-                        Process model for ArcGIS Pro
-                        <img data-src="images/mermaid-overview.svg" width = 80%></img> 
-                        <aside class="notes">
-                            <li>Euclidean distance to roads</li>
-                            <li>What does the tool "euclidean distance" actually do?</li>
-                        </aside>
-                    </section>
-                    <section>
-                        The ArcGIS Pro way<br> <br> 
-                        <img data-src="images/mermaid-settlements1.svg">
-                        <aside class="notes">
-                            <li>live search for the euclidean distance in qgis</li>
-                            <li>live google the term qgis euclidean distance</li>
-                        </aside>
-                    </section>
-                    <section> 
-                        ArcGIS vs. QGIS <br> <br>
-                        <img data-src="images/mermaid-settlements2.svg">
-                        <aside class="notes">
-                            <ul>
-                                <li>demonstrate the necessary steps</li> 
-                                <li>Rasterize: You MUST specify an extent</li>
-                                <li>Proximity: You MUST choose Distance units: Georeferenced units to get a distance in Meters (instead of cell numbers)</li>
-                                <li>Demonstrate reclassify by table</li>
-                                <li>Their turn: Repeat the steps rasterize, proximity, reclassify</li>
-                            </ul>
-
-                        </aside>
-                    </section>
-                    <section>
-                        <div style="float:left; width:40%">
-                            <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
-
-                            Exercise: Complete the MCA<br> <br>
-
-                            <i class="fa-solid fa-hourglass"></i>
-                            <countdown time="1500" autostart="yes" />
-                        </div>
-                        <div style="float:right;width:60%;text-align:right">
-                            <table cellspacing="0" style="font-size:small; background-color: #04AA6D;margin-right: 0px;width:100%">
-                                <colgroup>
-                                    <col style="background-color:#4caf50"></col>
-                                </colgroup>
-                                <tr>
-                                    <th>Class</th>
-                                    <th>Windspeed (dm/s)</th>
-                                    <th>Slope (Degrees)</th>
-                                    <th>Distance to Roads </th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>0- 35</td>
-                                    <td>&#62;20</td>
-                                    <td>&#62;2'000</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>35-45</td>
-                                    <td>15-20</td>
-                                    <td>1'500-2'000</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>45-55</td>
-                                    <td>10-15</td>
-                                    <td>1'000-1'500</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>55-65</td>
-                                    <td>5-10</td>
-                                    <td>500-1'000</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>&#62;65</td>
-                                    <td>0-5</td>
-                                    <td>0-500</td>
-                                </tr>
-                            </table>
-
-                            <img data-src="images/mermaid-overview.svg" style="max-width:100%"></img> 
-                            <aside class="notes">
-                                just work as far as you can, what you cannot finish will be the assignment for next week
-
-                            </aside>
-                        </div>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        QGIS Plug-ins <br> <br>
-
-                        <i class="fa-solid fa-plug fa-3x"></i>
-                    </section>
-                    <section>
-                        <ul>
-                            <li class="fragment">Vanilla QGIS is lightweight with limited features</li>
-                            <li class="fragment">Additional features are developped by the community</li>
-                            <li class="fragment">These features are implemented as "Plugins"</li>
-                            <li class="fragment">These plugins are made available via a central repository</li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
-                        Demo: Installing QuickMapService Plugin <br> <br>
-
-                        <aside = class="notes">
-                        <aside = class="notes">
-                            demonstrate: 
-                            <ul>
-                                <li>Plugins Tab</li> 
-                                <li>Repo URL </li>
-                                <li>How to install and use QuickMapServices</li> 
-                                <li>How to find help to a specific plugin (where is it accessible?)</li>
+                    <h4>Timetable</h4>
 
 
-                            </ul>
-                        </aside>
-                            demonstrate: 
-                            <ul>
-                                <li>Plugins Tab</li> 
-                                <li>Repo URL </li>
-                                <li>How to install and use QuickMapServices</li> 
-                                <li>How to find help to a specific plugin (where is it accessible?)</li>
+                    <div style="display:grid;grid-template-columns:auto auto;text-align:left;">
 
 
-                            </ul>
-                        </aside>
-                    </section> 
-                    <section>
-                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
-
-                        Exercise: Install the QuickMapService Plugin<br> <br>
-
-                        <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="300" autostart="yes" />
-                    </section>
-                </section>
-                <section>
-                    Break <br> <br> 
-                    <i class="fa-solid fa-mug-saucer fa-3x"></i>
-                </section>
-                <section>
-                    <section>Sentinel data in QGIS</section>
-                    <section>
-                        <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
-
-                        Demo: Creating a <em>true colour image</em> from the red (4), green (3) and blue (2) bands 
-                        <aside class="notes">
-                            <ul>
-                                <li>Import the three bands into qgis and rename them</li>
-                                <li>Build virtual raster tool</li>
-                                <li>Choose the three layers and reorder them</li>
-                                <li>Choose the option "place each input raster into a separate band"</li>
-                                <li>Save the output file explicitly</li>
-                                <li>view the vrt file with a text editor</li>
-                                <li>demonstrate how the vrt can be exported to a geotif</li>
-                                <li>demonstrate how merging can be done via the "merge tool"</li>
-                            </ul>
-                        </aside>
-                    </section>
-
-                    <section>
-
-
-                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
-                        Exercise: <br><br> 
-                        <ul>
-                            <li>Download sentinel data from Moodle</li>
-                            <li>Extract to reasonable location</li>
-                            <li>browse to that location within QGIS Browser</li>
-                            <li>Create an RGB image</li>  
-                        </ul>
-                        <br> <br>
-                        <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="600" autostart="yes" />
-
-                    </section>
-                    <section>
-                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
-
-                        Exercise: Create a NIR-GB image <br> <br>
-
-                        <i class="fa-solid fa-hourglass"></i>
-                        <countdown time="300" autostart="yes" />
-
-
-                    </section>
-                    <section> 
-
-                        Calculating the normalized difference vegetation index (NDVI). <br><br>
+                        <div class="fragment" style="align-self: center;">Lesson 1</div>
                         <div class="fragment">
-                            <i class="fa-solid fa-quote-left fa-2x fa-pull-left"></i>
-                            ... a simple indicator that can be used to analyse remote sensing measurements, assessing whether or not the target being observed contains live green vegetation.
+                            <div>Introduction and first steps</div>
+                            <div>Raster and vector data</div>
                         </div>
-                        <aside class="notes"> 
+                        <div class="fragment">
+                            <div>Lesson 2</div>
+                            <div>Lesson 3</div>
+                        </div>
+                        <div class="fragment" style="align-self: center;">MCE and plugins in QGIS</div>
 
-                        </aside>
-                    </section>
-                    <section>
-                        <img src="images/ndvi-united-states-1.webp">
-                        <figcaption style="font-size:smaller">
-                            NDVI ranges from -1 to +1 and is calculated as  $\frac{\text{NIR}-\text{Red}}{\text{NIR}+\text{Red}}$
-                        </figcaption>
-                    </section>
-                    <section><img data-src="images/ndvi.png"> </section>
-                    <section>
 
-                        <i class="fa-solid fa-hammer fa-2x"></i> <br> <br>
-                        Workshop: Calculating NDVI <br> <br>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>Import the bands 8 (nir) and 4 (red)</li>
-                                <li>Rename the bands to their respective names (NIR and Red)</li>
-                                <li>Open the Raster calculator</li>
-                                <li>Input the Formula</li>
-                                <li>Choose a Reference Layer (to automatically assign cellsize, CRS and Extent)</li>
-                                <li>Run function and visualize with singleband pseudocolour ranging from -1 to 1, linear interpolation, red to green and try different modes (continuous, quantile)</li>
-                            </ul>
-                        </aside>
-
-                    </section>
+                        <div class="fragment">Lesson 4</div>
+                        <div class="fragment">Sentinel data in QGIS</div>
+                    </div>
                 </section>
                 <section>
-                    <section>
-                        
-                        Workshop: Graphical Model Builder <br> <br>
+                    <div style="display:grid;grid-template-columns:repeat(4, auto);grid-row-gap:50px">
+                        <div class="fragment">
+                            <i class="fa-solid fa-bullhorn" style=""></i>
+                            Inputs
+                        </div>
+                        <div class="fragment">
+                            <i class="fa-solid fa-clapperboard"></i>
+                            Demos
+                        </div>
+                        <div class="fragment">
+                            <i class="fa-solid fa-person-biking" style=""></i>
+                            Exercises
+                        </div>
+                        <div class="fragment">
 
-                        <i class="fa-solid fa-hammer fa-2x"></i>
-                    </section>
+                            <i class="fa-solid fa-hammer"></i>
+                            Workshops
+                        </div>
+                        <div class="fragment">I talk</div>
+                        <div class="fragment">I show</div>
+                        <div class="fragment">you do</div>
+                        <div class="fragment">we do</div>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
 
+                    Why QGIS? <br><br>
+
+                    <i class="fa-solid fa-circle-question fa-3x"></i>
 
                     <aside class="notes">
                         <ul>
-                            <li>demonstrate building a model to mimic the "euclidean distance" functions in QGIS</li>
-                            <li>Explain Model Inputs and Algorithms</li>
-                            <li>Save the model to the project. Show the alternative of saving the model to a file</li>
-                            <li>Execute the model</li>
+                            <li>You just spent an entire semester learning ArcGIS, why do you have to switch?</li>
                         </ul>
-                        <aside>
+                    </aside>
                 </section>
-            </div>
 
+                <section>
+                    <ul>
+                        <li>Widely used and very popular</li>
+                        <li>Free and Open Source </li>
+                        <li>Cross-platform (Windows, MacOS &amp; Linux)</li>
+                    </ul>
+                </section>
+                <section> Widely used and very popular?? </section>
+                <section>
+                    <blockquote class="twitter-tweet" data-lang="en" data-theme="light">
+                        <p lang="en" dir="ltr">We are developing a new course on remote sensing at our uni. What
+                            software would you primarily base it on: <a
+                                href="https://twitter.com/ArcGISPro?ref_src=twsrc%5Etfw">@ArcGISPro</a> or <a
+                                href="https://twitter.com/qgis?ref_src=twsrc%5Etfw">@QGIS</a> ? Pure <a
+                                href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>
+                            or <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a>
+                            is not an option 😔 <a href="https://t.co/G4I6izCqhF">pic.twitter.com/G4I6izCqhF</a></p>
+                        &mdash; Nils Ratnaweera (@NRatnaweera) <a
+                            href="https://twitter.com/NRatnaweera/status/1447974898811424775?ref_src=twsrc%5Etfw">October
+                            12, 2021</a>
+                    </blockquote>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </section>
+                <section>
+                    <div class="fragment"> <img data-src="images/twitter2.png" style="height: 650px;"> </img> </div>
+                </section>
+
+                <section><img data-src="images/arcgis-qgis.png">
+                    <figcaption>Source: <a
+                            href="https://www.ratnaweera.xyz/blog/2022-11-30-ArcGIS-vs-QGIS/">ratnaweera.xyz/blog/2022-11-30-ArcGIS-vs-QGIS</a>
+                    </figcaption>
+                </section>
+                <section data-background-iframe="https://www.ratnaweera.xyz/blog/2022-11-30-ArcGIS-vs-QGIS/">
+
+                </section>
+
+                <section>
+                    Free and Open Source </br>
+
+                    <ul>
+                        <li> <i class="fa-solid fa-beer-mug-empty fa-fw"></i> Free as in free beer</li>
+                        <li><i class="fa-solid fa-bullhorn fa-fw"></i> Free as in free speech</li>
+                    </ul>
+                    <aside class="notes">
+                        <ul>
+                            <li>beer: free of charge</li>
+                            <li>speech a matter of liberty:</li>
+                            <ul>
+                                <li>use the software as you like</li>
+                                <li>see how the software works (source code)</li>
+                                <li>redistribute the software</li>
+                                <li>improve the software</li>
+                            </ul>
+                        </ul>
+
+                    </aside>
+                </section>
+                <section>
+                    Cross-platform <br> <br>
+                    <i class="fa-brands fa-linux fa-5x fa-fw"></i>
+                    <i class="fa-brands fa-windows fa-5x fa-fw"></i>
+                    <i class="fa-brands fa-apple fa-5x fa-fw"></i>
+
+                </section>
+                <section data-background-image="images/oasis-wallpaper.jpg">
+                    <div style="color:black;">The transition will be hard</div>
+                    <div style:"color:black;" class="fragment highlight-blue"> ..brace yourselves </div>
+                    <img data-src="images/qgis-icon.png" width="100px" style="position:absolute;right:-10%">
+                    <img data-src="images/arcgis-icon.png" width="100px" style="position:absolute;left:-10%">
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section>
+
+                    How is QGIS different from ArcGIS? <br><br>
+
+                    <i class="fa-solid fa-jedi fa-3x"></i>
+                </section>
+                <section>
+                    <small>An <em>opinionated</em> side by side comparison</small>
+                </section>
+                <section>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(3, auto); text-align: left; font-size: smaller; gap: 10px">
+                        <div> </div>
+                        <div> ArcGIS <img data-src="images/arcgis-icon.png" style="height:30px"> </div>
+                        <div> QGIS <img data-src="images/qgis-icon.png" style="height:30px"></div>
+
+
+                        <div class="fragment"> Point of contact</div>
+                        <div class="fragment"> Single</div>
+                        <div class="fragment"> none/multiple </div>
+
+
+                        <div class="fragment"> Concept </div>
+                        <div class="fragment"> Seamless</div>
+                        <div class="fragment"> Modular </div>
+
+
+                        <div class="fragment"> Community</div>
+                        <div class="fragment"> Weak</div>
+                        <div class="fragment"> Strong!</div>
+
+
+                        <div class="fragment"> Documentation </div>
+                        <div class="fragment"> Excellent</div>
+                        <div class="fragment"> Very technical</div>
+
+
+                        <div class="fragment"> User Interface (UX)</div>
+                        <div class="fragment"> State of the art </div>
+                        <div class="fragment"> Outdated </div>
+
+
+                        <div class="fragment">Compliance w/ OGC</div>
+                        <div class="fragment">Poor</div>
+                        <div class="fragment">High</div>
+                    </div>
+
+
+                </section>
+            </section>
+            <section>
+
+                <section>First steps in QGIS <br> <br>
+                    <i class="fa-solid fa-baby fa-3x"></i>
+                </section>
+                <section>
+                    <i class="fa-solid fa-hammer fa-2x"></i> <br> <br>
+
+                    Workshop: First contact with QGIS <br> <br>
+                    <aside class="notes">
+                        <ul>
+                            <li>Start QGIS</li>
+                            <li>Why do I see news and a welcome screen?</li>
+                            <li>Change Settings → Options</li>
+                            <li>General → Application</li>
+                            <li>Icon Size → Change to reasonable size</li>
+                            <li>Hide spash screen at startup</li>
+                            <li>Show QGIS News feed on welcome page</li>
+                            <li>General → Project files → Open project on launch → New</li>
+                            <li>General → Override System Locale →</li>
+                            <ul>
+                                <li>User interface language > English</li>
+                                <li>Locale: German Switzerland (de_CH)</li>
+                            </ul>
+                            <li>Show what the coorindates display when moving the mouse over the map</li>
+                            <li>Import Geopackage, only one layer (Kanton Schwyz)</li>
+                            <li>Show what the coordinates display now</li>
+                            <li>Do a buffer</li>
+                        </ul>
+
+
+                    </aside>
+                </section>
+            </section>
+            <section>
+                <section> Coordinate reference systems and projections <br> <br>
+
+                    <i class="fa-solid fa-earth-africa fa-3x"></i>
+                </section>
+
+                <section>
+                    <style>
+                        .message {
+                            border-radius: 10px;
+                            padding: 0px 10px 0px 10px;
+                        }
+
+                        .left {
+                            text-align: left;
+                            background-color: #04AA6D;
+                        }
+
+                        .right {
+                            text-align: right;
+                            background-color: #1a6acc;
+                        }
+
+                        .left p::before {
+                            content: url(images/qgis-icon_15px.png);
+                            padding-right: 10px;
+
+                        }
+
+                        .right p::after {
+                            content: url(images/arcgis-icon_15px.png);
+                            padding-left: 10px;
+
+                        }
+
+                        .time {
+                            font-size: large;
+                            padding: 3px;
+                        }
+                    </style>
+                    <div style="font-size: x-large;">
+                        <div class="message left fragment">
+                            <p>Hi man, where are you?</p>
+                            <div class="time">7:00</div>
+                        </div>
+                        <div class="message right fragment">
+                            <p>Campus Grüental, you?</p>
+                            <div class="time">7:05</div>
+                        </div>
+                        <div class="message left fragment">
+                            <p>Me too, where exactly?</p>
+                            <div class="time">7:07</div>
+                        </div>
+                        <div class="message right fragment">
+                            <p>here</p>
+                            <img src="images/phone-location2.png" height="100px">
+                            <div class="time">7:10</div>
+                        </div>
+                    </div>
+
+
+
+                </section>
+                <section>
+                    <img src="images/phone-location2.png">
+                </section>
+
+                <section>
+                    <pre><code data-trim class="text" data-line-numbers="|1-3|3-4">
+                        CH1903+ / LV95:	   2'694'139.5, 1'230'462.0
+                        CH1903 / LV03:	   694'138.66, 230'462.17
+                        WGS 84 (lat/lon):  47.21838, 8.68150
+                        WGS 84 (lat/lon):  47°13'06.186 N 8°40'53.383 E
+                        UTM:               475'884, 5'229'482 (zone 32T)
+                        MGRS 32TMT:        75884 29482
+                        what3words:        opposing.vets.snoring
+                    </code></pre>
+
+                </section>
+                <section>
+                    WGS84 is a <em>Geographic coordinate system</em>
+                    <img data-src="images/LatLonOnEarth.png">
+                </section>
+                <section>
+                    Geographic Coordinate Systems<br> <br>
+                    <ul>
+                        <li class="fragment">They see the world as a sphere </li>
+                        <li class="fragment">They use longitude and latitude</li>
+                        <li class="fragment">They are useful for global data</li>
+                        <li class="fragment">They are cumbersome for small-scale applications</li>
+                        <li class="fragment">The most important is WGS84</li>
+                    </ul>
+                </section>
+                <section>
+                    WGS84<br> <br>
+                    <div class="pull-left">
+                        <img data-src="images/LatLonOnEarth.png">
+                    </div>
+                    <div class="pull-right">
+                        <ul>
+                            <li class="fragment"> EPSG Code: 4326 (!)</li>
+                            <li class="fragment"> W-E -180 to +180</li>
+                            <li class="fragment"> S-N -90 to +90</li>
+                            <li class="fragment"> Switzerland</li>
+                            <ul>
+                                <li class="fragment">W-E 5.9 - 10.4</li>
+                                <li class="fragment">S-N 45.8 - 47.8 </li>
+                            </ul>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <pre><code data-trim class="text" data-line-numbers="|1-2">
+                        CH1903+ / LV95:	   2'694'139.5, 1'230'462.0
+                        CH1903 / LV03:	   694'138.66, 230'462.17
+                        WGS 84 (lat/lon):  47.21838, 8.68150
+                        WGS 84 (lat/lon):  47°13'06.186 N 8°40'53.383 E
+                        UTM:               475'884, 5'229'482 (zone 32T)
+                        MGRS 32TMT:        75884 29482
+                        what3words:        opposing.vets.snoring
+                    </code></pre>
+
+                </section>
+                <section>
+                    Projected Coordinate Systems <br> <br>
+                    <ul>
+                        <li class="fragment">They abstract the world to a 2D-plane</li>
+                        <li class="fragment">They use x/y or E/N coordinates </li>
+                        <li class="fragment">They are useful for local (e.g. National) data</li>
+                        <li class="fragment">Cannot be used for global data</li>
+                        <li class="fragment">The most important (for us) are <code>CH1903+LV95</code> and
+                            <code>CH1903 LV03</code>
+                        </li>
+                    </ul>
+                </section>
+                <section data-transition="fade">
+
+                    <style>
+
+                    </style>
+
+                    <div class="pull-left">
+                        <code>CH1903+ LV95</code> <br><br>
+                        <ul>
+                            <li class="fragment">EPSG Code: 2056 (!)</li>
+                            <li class="fragment">new swiss coordinate system</li>
+                            <li class="fragment">centered on Bern</li>
+                            <li class="fragment">W-E: 2'400'000-2'800'000</li>
+                            <li class="fragment">S-N: 1'100'000-1'300'000</li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        <img data-src="images/epsg2056.png">
+                    </div>
+                </section>
+                <section data-transition="none">
+                    <div class="pull-left">
+                        <img data-src="images/epsg21781.png">
+                    </div>
+                    <div class="pull-right">
+                        <code> CH1903 LV95</code> <br><br>
+                        <ul>
+                            <li>EPSG Code: 21781 (!) </li>
+                            <li><u>old</u> swiss coordinate system</li>
+                            <li>centered on Bern</li>
+                            <li>W-E 400'000-800'000</li>
+                            <li>S-N 100'000-300'000</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+            <section>
+                Break <br> <br>
+                <i class="fa-solid fa-mug-saucer fa-3x"></i>
+            </section>
+            <section>
+                <section>
+                    Raster and vector data in QGIS<br> <br>
+
+                    <i class="fa-solid fa-screwdriver-wrench fa-3x"></i>
+
+                </section>
+                <section>
+                    <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+
+                    Demo: CRS in QGIS
+                    <aside class="notes">
+                        <ul>
+                            <li>Import Wold Country Borders in QGIS: How does the world look in EPSG:2056?</li>
+                            <li>Change to WGS84: How does the world look now?</li>
+                            <li>Emphasize that the CRS of the <em>data</em> does not change</li>
+                            <li>Change to Pseudo-Mercator (EPSG: 3857): The world as we see it through google</li>
+                            <li>Now switch to slides to explain toy data</li>
+
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-background-image="images/map1.png">
+                    <aside class="notes">
+                        <ul>
+                            <li>I generated some toy data: </li>
+                            <ul>
+                                <li>Every 20 Degrees longitude, create a line</li>
+                                <li>Every 20 Degrees latitude, create a line</li>
+                            </ul>
+                            <li>At the intersection of these lines, add a dot</li>
+
+                        </ul>
+                    </aside>
+                </section>
+                <section data-background-image="images/map2.png">
+                    <aside class="notes">
+                        <ul>
+                            <li>Buffer these dots with a radius of 500km</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section data-background-image="images/map3.png">
+                    <aside class="notes">
+                        <li>Notice, how the circles are closer together at the poles and further apart at the equator?
+                        </li>
+
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+
+                    Demo: CRS in QGIS (continued)
+
+                    <aside class="notes">
+                            <ul>
+                                <li>Add Toy data, and inspect it in EPSG: 3857</li>
+                                <ul>
+                                    <li>Notice how the circles are circular, but the size varies?</li>
+                                    <li>Notice how the coordinate are planar? EPSG 3857 is a global, projected
+                                        coordinate system</li>
+                                </ul>
+                                <li>Change to WGS84: Notice how the circles are distorted?</li>
+                                <li>Change to ESRI:54015</li>
+
+                            </ul>
+                     
+                    </aside>
+                </section>
+
+                <section data-background-image="images/xkcd-1.png" data-background-size="contain"></section>
+                <section data-background-image="images/xkcd-2.png" data-background-size="contain"></section>
+                <section data-background-image="images/xkcd-3.png" data-background-size="contain"></section>
+
+                <section data-background-iframe="https://learn.arcgis.com/en/paths/map-projections/">
+                </section>
+
+                <section>
+                    <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+
+                    Demo: Vector Data in QGIS
+
+                    <aside class="notes">
+                        <ul>
+                            <li>Add roads dataset from geopackage</li>
+                            <li>Open Attribute Table</li>
+                            <li>Change Symbology</li>
+                            <ul>
+                                <li>Simple Fill: Fill Colour, Stroke Colour, Stroke Width and Style</li>
+                                <li>Gradient fill, hashed fill</li>
+                                <li>Categorized </li>
+                            </ul>
+                        </ul>
+                    </aside>
+                </section>
+
+
+
+                <section>
+                    What is a geopackage? <br> <br>
+                    <div style="float:left; width:30%">
+                        <img data-src="images/prefer-geopackage.png" width="100%">
+                        <figcaption style="font-size:small">Source: <a
+                                href="http://switchfromshapefile.org/">switchfromshapefiles.org</a></figcaption>
+                    </div>
+                    <div style="float:right;width:70%">
+                        <ul>
+                            <li>a better alternative to the limited and proprietery formats <em>shapefile</em> and <em>
+                                    geodatabase</em></li>
+                            <li>can contain vector and raster data</li>
+                            <li>can contain multiple layers</li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>What is a geopackage? It's not an arcgis pro package but an alternative to file
+                                geodatabase and shapefiles</li>
+                            <li>Navigate to the data using the Browser pane. Add as a bookmark if desired</li>
+                            <li>What CRS does the dataset have? Check layer properties!</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+
+                    Exercise: Import the other vector datasets from the geopackage into QGIS<br> <br>
+
+                    <i class="fa-solid fa-hourglass"></i>
+                    <countdown time="600" autostart="yes" />
+
+                </section>
+            </section>
+            <section>
+                Break <br> <br>
+                <i class="fa-solid fa-mug-saucer fa-3x"></i>
+            </section>
+
+            <section>
+                <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+
+                Demo: Raster data in QGIS
+                <aside class="notes">
+                    <ul>
+                        <li>open data source manager and add the desired folder as a favorite</li>
+                        <li>Go to the geopackage: Notice how it is now expandable?</li>
+                        <li>Add raster dataset to the project</li>
+                        <li>View → Panels → Layer Styling</li>
+                        <li>Singleband Pseudocolour with discrete classes, raising the number of classes</li>
+                        <li>with linear interpolation and different colour ramps</li>
+                        <li>duplicate layer and show hillshade with different azimuth and z-factor</li>
+                        <li>duplicate layer and show contours</li>
+
+                    </ul>
+                </aside>
+            </section>
+
+
+            <section>
+                <i class="fa-solid fa-person-biking fa-2x"></i><br><br>
+
+                Exercise:<br> <br>
+
+                <p> Import the raster datasets into QGIS and play around with symobology <br> <br> </p><br> <br>
+
+                </p>
+
+                <i class="fa-solid fa-hourglass"></i>
+                <countdown time="900" autostart="yes" />
+
+            </section>
+
+
+            <section>
+                <section>
+
+                    Multicriteria analysis with QGIS <br> <br>
+
+                    <i class="fa-solid fa-chart-area fa-3x"></i>
+                </section>
+                <section>
+                    Finding suitable locations for wind turbines <br> <br>
+                    <div class="pull-left">
+                        Exclusion areas <br> <br>
+                        <ul>
+                            <li>Lakes</li>
+                            <li>National protected areas</li>
+                            <li>Minimum distance of 200 m from existing settlement areas</li>
+                        </ul>
+                    </div>
+                    <div class="pull-right">
+                        Areas of interest<br> <br>
+                        <ul>
+                            <li>Sufficient wind potential</li>
+                            <li>Low risk of icing</li>
+                            <li>Easy access (existing road and low gradient)</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    Process model for ArcGIS Pro
+                    <img data-src="images/mermaid-overview.svg" width=80%></img>
+                    <aside class="notes">
+                        <li>Euclidean distance to roads</li>
+                        <li>What does the tool "euclidean distance" actually do?</li>
+                    </aside>
+                </section>
+                <section>
+                    The ArcGIS Pro way<br> <br>
+                    <img data-src="images/mermaid-settlements1.svg">
+                    <aside class="notes">
+                        <li>live search for the euclidean distance in qgis</li>
+                        <li>live google the term qgis euclidean distance</li>
+                    </aside>
+                </section>
+                <section>
+                    ArcGIS vs. QGIS <br> <br>
+                    <img data-src="images/mermaid-settlements2.svg">
+                    <aside class="notes">
+                        <ul>
+                            <li>demonstrate the necessary steps</li>
+                            <li>Rasterize: You MUST specify an extent</li>
+                            <li>Proximity: You MUST choose Distance units: Georeferenced units to get a distance in
+                                Meters (instead of cell numbers)</li>
+                            <li>Demonstrate reclassify by table</li>
+                            <li>Their turn: Repeat the steps rasterize, proximity, reclassify</li>
+                        </ul>
+
+                    </aside>
+                </section>
+                <section>
+                    <div style="float:left; width:40%">
+                        <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+
+                        Exercise: Complete the MCA<br> <br>
+
+                        <i class="fa-solid fa-hourglass"></i>
+                        <countdown time="1500" autostart="yes" />
+                    </div>
+                    <div style="float:right;width:60%;text-align:right">
+                        <table cellspacing="0"
+                            style="font-size:small; background-color: #04AA6D;margin-right: 0px;width:100%">
+                            <colgroup>
+                                <col style="background-color:#4caf50">
+                                </col>
+                            </colgroup>
+                            <tr>
+                                <th>Class</th>
+                                <th>Windspeed (dm/s)</th>
+                                <th>Slope (Degrees)</th>
+                                <th>Distance to Roads </th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0- 35</td>
+                                <td>&#62;20</td>
+                                <td>&#62;2'000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>35-45</td>
+                                <td>15-20</td>
+                                <td>1'500-2'000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>45-55</td>
+                                <td>10-15</td>
+                                <td>1'000-1'500</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>55-65</td>
+                                <td>5-10</td>
+                                <td>500-1'000</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>&#62;65</td>
+                                <td>0-5</td>
+                                <td>0-500</td>
+                            </tr>
+                        </table>
+
+                        <img data-src="images/mermaid-overview.svg" style="max-width:100%"></img>
+                        <aside class="notes">
+                            just work as far as you can, what you cannot finish will be the assignment for next week
+
+                        </aside>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    QGIS Plug-ins <br> <br>
+
+                    <i class="fa-solid fa-plug fa-3x"></i>
+                </section>
+                <section>
+                    <ul>
+                        <li class="fragment">Vanilla QGIS is lightweight with limited features</li>
+                        <li class="fragment">Additional features are developped by the community</li>
+                        <li class="fragment">These features are implemented as "Plugins"</li>
+                        <li class="fragment">These plugins are made available via a central repository</li>
+                    </ul>
+                </section>
+                <!-- CONTINUE HERE-->
+                <section>
+                    <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+                    Demo: Installing QuickMapService Plugin <br> <br>
+
+                    <aside class="notes">
+                            demonstrate:
+                            <ul>
+                                <li>Plugins Tab</li>
+                                <li>Repo URL </li>
+                                <li>How to install and use QuickMapServices</li>
+                                <li>How to find help to a specific plugin (where is it accessible?)</li>
+                            </ul>
+                            </aside>
+                </section>
+                <section>
+                    <i class="fa-solid fa-person-biking fa-2x"></i><br><br>
+
+                    Exercise: Install the QuickMapService Plugin<br> <br>
+
+                    <i class="fa-solid fa-hourglass"></i>
+                    <countdown time="300" autostart="yes" />
+                </section>
+            </section>
+            <section>
+                Break <br> <br>
+                <i class="fa-solid fa-mug-saucer fa-3x"></i>
+            </section>
+            <section>
+                <section>Sentinel data in QGIS</section>
+                <section>
+                    <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
+
+                    Demo: Creating a <em>true colour image</em> from the red (4), green (3) and blue (2) bands
+                    <aside class="notes">
+                        <ul>
+                            <li>Import the three bands into qgis and rename them</li>
+                            <li>Build virtual raster tool</li>
+                            <li>Choose the three layers and reorder them</li>
+                            <li>Choose the option "place each input raster into a separate band"</li>
+                            <li>Save the output file explicitly</li>
+                            <li>view the vrt file with a text editor</li>
+                            <li>demonstrate how the vrt can be exported to a geotif</li>
+                            <li>demonstrate how merging can be done via the "merge tool"</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+
+
+                    <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+                    Exercise: <br><br>
+                    <ul>
+                        <li>Download sentinel data from Moodle</li>
+                        <li>Extract to reasonable location</li>
+                        <li>browse to that location within QGIS Browser</li>
+                        <li>Create an RGB image</li>
+                    </ul>
+                    <br> <br>
+                    <i class="fa-solid fa-hourglass"></i>
+                    <countdown time="600" autostart="yes" />
+
+                </section>
+                <section>
+                    <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
+
+                    Exercise: Create a NIR-GB image <br> <br>
+
+                    <i class="fa-solid fa-hourglass"></i>
+                    <countdown time="300" autostart="yes" />
+
+
+                </section>
+                <section>
+
+                    Calculating the normalized difference vegetation index (NDVI). <br><br>
+                    <div class="fragment">
+                        <i class="fa-solid fa-quote-left fa-2x fa-pull-left"></i>
+                        ... a simple indicator that can be used to analyse remote sensing measurements, assessing
+                        whether or not the target being observed contains live green vegetation.
+                    </div>
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+                <section>
+                    <img src="images/ndvi-united-states-1.webp">
+                    <figcaption style="font-size:smaller">
+                        NDVI ranges from -1 to +1 and is calculated as
+                        $\frac{\text{NIR}-\text{Red}}{\text{NIR}+\text{Red}}$
+                    </figcaption>
+                </section>
+                <section><img data-src="images/ndvi.png"> </section>
+                <section>
+
+                    <i class="fa-solid fa-hammer fa-2x"></i> <br> <br>
+                    Workshop: Calculating NDVI <br> <br>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>Import the bands 8 (nir) and 4 (red)</li>
+                            <li>Rename the bands to their respective names (NIR and Red)</li>
+                            <li>Open the Raster calculator</li>
+                            <li>Input the Formula</li>
+                            <li>Choose a Reference Layer (to automatically assign cellsize, CRS and Extent)</li>
+                            <li>Run function and visualize with singleband pseudocolour ranging from -1 to 1, linear
+                                interpolation, red to green and try different modes (continuous, quantile)</li>
+                        </ul>
+                    </aside>
+
+                </section>
+            </section>
+            <section>
+                <section>
+
+                    Workshop: Graphical Model Builder <br> <br>
+
+                    <i class="fa-solid fa-hammer fa-2x"></i>
+                </section>
+
+
+                <aside class="notes">
+                    <ul>
+                        <li>demonstrate building a model to mimic the "euclidean distance" functions in QGIS</li>
+                        <li>Explain Model Inputs and Algorithms</li>
+                        <li>Save the model to the project. Show the alternative of saving the model to a file</li>
+                        <li>Execute the model</li>
+                    </ul>
+                    <aside>
+            </section>
         </div>
 
-        <script src="reveal.js/dist/reveal.js"></script>
-        <script src="reveal.js/plugin/notes/notes.js"></script>
-        <script src="reveal.js/plugin/markdown/markdown.js"></script>
-        <script src="reveal.js/plugin/highlight/highlight.js"></script>
-        <script src="reveal.js/plugin/zoom/zoom.js"></script>
-        <script src="reveal.js/plugin/math/math.js"></script>
-        <script>
-            // More info about initialization & config:
-            // - https://revealjs.com/initialization/
-            // - https://revealjs.com/config/
-            Reveal.initialize({
-                dependencies: [
-                    {src:"reveal.js/plugin/countdown/countdown.js"},
-                ],
-                hash: true,
-                countdown: { defaultTime: 600, autostart: "yes"},
-                // Learn about plugins: https://revealjs.com/plugins/
-                plugins: [ RevealHighlight, RevealNotes, RevealZoom, RevealMath],
-            });
-        </script>
-    </body>
-</html>
+    </div>
 
+    <script src="reveal.js/dist/reveal.js"></script>
+    <script src="reveal.js/plugin/notes/notes.js"></script>
+    <script src="reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js/plugin/zoom/zoom.js"></script>
+    <script src="reveal.js/plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            dependencies: [
+                { src: "reveal.js/plugin/countdown/countdown.js" },
+            ],
+            hash: true,
+            countdown: { defaultTime: 600, autostart: "yes" },
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealHighlight, RevealNotes, RevealZoom, RevealMath],
+        });
+    </script>
+</body>
+
+</html>
