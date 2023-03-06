@@ -29,7 +29,7 @@ hand, the MCE-Exercise took about an hour, rather than 25 minutes, and was an id
 
 ### Lesson 3: Multicriteria Analysis with QGIS
 
-- Demo und Input: 10 (knapp):
+- Demo und Input: 10:
 - Exercise Wind power turbine 25 min
 - QGIS Plugins
   - Input & Demo: 5 (knapp!)
