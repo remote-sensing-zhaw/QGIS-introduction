@@ -7,6 +7,11 @@
 
 ## Timetable
 
+Note to self (7.3.2023): 
+
+- This timetable is not a bad approximation of how it played out. We stayed flexible taking the breaks, after the first two lessons we were done 10min early.
+- the MCE is too complex, make it smaller. It currently tries to resemble what they did in the GIS course, but that is not necessary. Make it smaller and more focused on the workshop.
+
 ### Lesson 1: Introduction & first steps
 
 - Slides:
@@ -40,8 +45,7 @@
 - Exercise: Create a RGB or NIR-GB Image 10min
 - Input NDVI: 5min
 - Workshop NDVI: 15min
-
-Optional: Workshop Graphical Model Builder: 15min
+- Workshop Graphical Model Builder: 15min
 
 
 
