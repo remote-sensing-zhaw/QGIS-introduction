@@ -2,10 +2,15 @@
 
 library(sf)
 library(ggplot2)
+
+library(pacman)
+pacman::p_install_gh("ropensci/rnaturalearthhires")
+
+# install.packages("rnaturalearth")
+# install.packages("rnaturalearthdata")
 library(rnaturalearth)
 library(rnaturalearthdata)
 
-remote::install_github("ropensci/rnaturalearthhires")
 
 world_countries <- rnaturalearth::ne_countries(returnclass = "sf")
 switzerland <- ne_countries(scale = 10, country = "switzerland", returnclass = "sf")
@@ -57,6 +62,7 @@ mymap2 <- mymap +
   geom_sf(data = my_points) +
   geom_sf(data = my_circles_filter, alpha = 0.3)
 
+mymap2
 
 lat <- 45
 lon <- 2
@@ -113,4 +119,20 @@ plot_proj <- function(proji, desc, plot_it = TRUE){
 purrr::map2(projinfo$name, projinfo$description, \(proji, desc) tryCatch(plot_proj(proji, desc),error = function(e){e}))
 
 
+
+# Now, visualize UTM Zones
+
+# https://hub.arcgis.com/datasets/esri::world-utm-grid/explore
+utm_zones <- read_sf("World_UTM_Grid_-8777149898303524843.gpkg")
+
+
+utm_zones <- st_make_valid(utm_zones)
+ggplot() +
+  geom_sf(data = world_countries, fill = "darkgrey",color = "lightgrey") +
+  geom_sf(data = dplyr::filter(utm_zones, ZONE > 20, ZONE < 22))  +
+  geom_sf(data = circle, fill = NA) +
+  coord_sf(crs = ortho) +
+  theme(panel.background = element_rect(fill="transparent"),
+        plot.background = element_rect(fill="transparent", color=NA),
+        panel.ontop = FALSE)
 
