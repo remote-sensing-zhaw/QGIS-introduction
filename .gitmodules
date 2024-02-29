@@ -1,0 +1,6 @@
+[submodule "revealjs"]
+	path = revealjs
+	url = https://github.com/hakimel/reveal.js
+[submodule "countdown"]
+	path = countdown
+	url = https://github.com/christer79/reveal_countdown

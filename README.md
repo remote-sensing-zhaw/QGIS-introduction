@@ -1,16 +1,17 @@
 
+## ToDo in 2024:
+
+- [ ] the MCE is too complex, make it smaller. It currently tries to resemble what they did in the GIS course, but that is not necessary. Make it smaller and more focused on the workshop.
+
 
 ## General
 
-- Use the plugin countdownjs to create a countdown timeer: https://github.com/christer79/reveal_countdown
+- Use the plugin countdownjs to create a countdown timer: https://github.com/christer79/reveal_countdown
 - Workshop notes: These are integrated into the speaker notes!
 
 ## Timetable
 
-Note to self (7.3.2023): 
-
-- This timetable is not a bad approximation of how it played out. We stayed flexible taking the breaks, after the first two lessons we were done 10min early.
-- the MCE is too complex, make it smaller. It currently tries to resemble what they did in the GIS course, but that is not necessary. Make it smaller and more focused on the workshop.
+Note to self (7.3.2023): This following timetable is not a bad approximation of how it played out. We stayed flexible taking the breaks, after the first two lessons we were done 10min early.
 
 ### Lesson 1: Introduction & first steps
 
