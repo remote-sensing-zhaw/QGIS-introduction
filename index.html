@@ -142,9 +142,9 @@
                                 href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>
                             or <a href="https://twitter.com/hashtag/python?src=hash&amp;ref_src=twsrc%5Etfw">#python</a>
                             is not an option 😔 <a href="https://t.co/G4I6izCqhF">pic.twitter.com/G4I6izCqhF</a></span>
-                        &mdash; Nils Ratnaweera (@NRatnaweera) <a
-                            href="https://twitter.com/NRatnaweera/status/1447974898811424775?ref_src=twsrc%5Etfw">October
-                            12, 2021</a>
+                            &mdash; Nils Ratnaweera (@NRatnaweera) <a
+                                href="https://twitter.com/NRatnaweera/status/1447974898811424775?ref_src=twsrc%5Etfw">October
+                                12, 2021</a>
                     </blockquote>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </section>
@@ -268,7 +268,8 @@
 
                         <ul>
                             <li>Go to "Settings → Options"</li>
-                            <li>(<em>is your UI not in English? If so, lets change that ASAP, to make debugging and websearches more fun</em>)</li>
+                            <li>(<em>is your UI not in English? If so, lets change that ASAP, to make debugging and
+                                    websearches more fun</em>)</li>
                             <ul>
                                 <li>General → ☑ Override System Locale</li>
                                 <li>User Interface Translation: ENGLISH!</li>
@@ -281,14 +282,15 @@
                                 <li>□ Check QGIS Version on startup</li>
                                 <li>Icon Size → Change to reasonable size</li>
                             </ul>
-                            
+
                             <!-- <li>General → Project files → Open project on launch → New</li> -->
-                    
+
                         </ul>
 
-                        Demonstrate: 
+                        Demonstrate:
                         <ol>
-                            <li>Important: Create a QGIS project first (this is helpful to set the working directory)</li>
+                            <li>Important: Create a QGIS project first (this is helpful to set the working directory)
+                            </li>
                             <li>Show what the coordinates display when moving the mouse over the map</li>
                             <li>Import Geopackage, only one layer (Kanton Schwyz)</li>
                             <li>Show what the coordinates display now</li>
@@ -306,13 +308,12 @@
                 </section>
 
                 <section>
-                    <style>
-            
-                    </style>
+
                     <div style="font-size: large; display: grid; gap: 10px;">
                         <div class="message left fragment">
                             <span>Hi, where are you?</span>
                             <div class="time">7:00</div>
+                            <aside class="notes">Imagine a converstation between two people</aside>
                         </div>
                         <div class="message right fragment">
                             <span>Campus Grüental, you?</span>
@@ -322,20 +323,34 @@
                             <span>Me too, where are you exactly?</span>
                             <div class="time">7:07</div>
                         </div>
+
                         <div class="message right fragment">
-                            <span>694138 / 230462</span>
+                            <span>10 meters south of the big tree</span>
                             <div class="time">7:07</div>
+
+                            <aside class="notes">Location is usually described as an offset to a reference point</aside>
+                        </div>
+
+
+                        <div class="message right fragment">
+                            <span>Here: <b>694138 / 230462</b></span>
+                            <div class="time">7:07</div>
+                            <aside class="notes">To specify a location <em>precisely</em>, you need coordinates</aside>
+
                         </div>
                         <div class="message left fragment">
                             <span>???</span>
                             <div class="time">7:08</div>
+                            <aside class="notes">
+                                Coordinates only make sense, if you know what <em>system</em> they refer to
+                            </aside>
                         </div>
                         <div class="message right fragment">
-                            <!-- <div> -->
-                                <span>here</span>
-                            <img src="images/phone-location2.png" height="100px">
+                            <!-- <span>here</span> -->
+                            <img src="images/phone-location2.png" height="300px">
                             <div class="time">7:10</div>
-                            <!-- </div> -->
+
+                            <aside class="notes">We must therefore know the <em>coordinate's refence system</em></aside>
                         </div>
                     </div>
 
@@ -344,10 +359,22 @@
                 </section>
                 <section>
                     <img src="images/phone-location2.png">
+
+                    Source: <a href="https://map.geo.admin.ch">map.geo.admin.ch</a>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>You can get coordiantes from webmaps, e.g. <a
+                                    href="https://map.geo.admin.ch">map.geo.admin.ch</a></li>
+                            <li>Feel free to visit this site yourself and zoom in an area of your interest → right click
+                            </li>
+                            <li>Let's take a closer look at these numbers</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
-                    <pre><code data-trim class="text" data-line-numbers="|1-3|3-4">
+                    <pre><code data-trim class="text" data-line-numbers="|3-4">
                         CH1903+ / LV95:	   2'694'139.5, 1'230'462.0
                         CH1903 / LV03:	   694'138.66, 230'462.17
                         WGS 84 (lat/lon):  47.21838, 8.68150
@@ -357,10 +384,23 @@
                         what3words:        opposing.vets.snoring
                     </code></pre>
 
+                    <aside class="notes">
+                        Let's look at the two so called "WGS84" coordinates first
+                    </aside>
+
+    
                 </section>
                 <section>
                     WGS84 is a <em>Geographic coordinate system</em>
                     <img data-src="images/LatLonOnEarth.png">
+
+                    <aside class="notes">
+                        WGS84:
+                        <ul>
+                            <li>is applicable to the entire world</li>
+                            <li>is represented as an <em>anuglar</em> offset </li>
+                        </ul>
+                    </aside>
                 </section>
                 <section>
                     Geographic Coordinate Systems<br> <br>
@@ -378,17 +418,31 @@
                         <img data-src="images/LatLonOnEarth.png">
                     </div>
                     <div class="pull-right">
-                        <ul>
-                            <li class="fragment"> EPSG Code: 4326 (!)</li>
-                            <li class="fragment"> W-E -180 to +180</li>
-                            <li class="fragment"> S-N -90 to +90</li>
-                            <li class="fragment"> Switzerland</li>
-                            <ul>
-                                <li class="fragment">W-E 5.9 - 10.4</li>
-                                <li class="fragment">S-N 45.8 - 47.8 </li>
-                            </ul>
-                        </ul>
+
+                        <div
+                            style="display: grid; grid-template-columns: auto auto; justify-items: left; font-size: x-large;">
+                            <div>EPSG</div>
+                            <div class="fragment highlight-red">4326</div>
+
+                            <div>West-East</div>
+                            <div class="fragment highlight-red">-180 to +180</div>
+
+                            <div>South-North</div>
+                            <div class="fragment highlight-red">-90 to +90</div>
+
+                            <div>West-East (CH) </div>
+                            <div class="fragment highlight-red">5.9 - 10.4</div>
+
+
+                            <div>South-North (CH)</div>
+                            <div class="fragment highlight-red">45.8 - 47.8</div>
+                        </div>
+
                     </div>
+
+                    <aside class="notes">
+                        Write this down!
+                    </aside>
                 </section>
                 <section>
                     <pre><code data-trim class="text" data-line-numbers="|1-2">
@@ -400,6 +454,11 @@
                         MGRS 32TMT:        75884 29482
                         what3words:        opposing.vets.snoring
                     </code></pre>
+
+                    <aside class="notes">
+                        Next, let's have a look at these switzerland specific coordinates. These are so called
+                        "projected coordinates"
+                    </aside>
 
                 </section>
                 <section>
@@ -416,38 +475,122 @@
                 </section>
                 <section data-transition="fade">
 
-                    <style>
 
-                    </style>
 
+                    CH1903+ LV95 (new swiss coordinate system)<br><br>
                     <div class="pull-left">
-                        <code>CH1903+ LV95</code> <br><br>
-                        <ul>
-                            <li class="fragment">EPSG Code: 2056 (!)</li>
-                            <li class="fragment">new swiss coordinate system</li>
-                            <li class="fragment">centered on Bern</li>
-                            <li class="fragment">W-E: 2'400'000-2'800'000</li>
-                            <li class="fragment">S-N: 1'100'000-1'300'000</li>
-                        </ul>
+
+                        <div style="display: grid; grid-template-columns: auto auto; justify-items: left; font-size:
+                        x-large;">
+                            <div>EPSG</div>
+                            <div class="fragment highlight-red">2056</div>
+
+                            <div>West-East</div>
+                            <div class="fragment highlight-red">2'400'000-2'800'000</div>
+
+                            <div>South-North</div>
+                            <div class="fragment highlight-red">1'100'000-1'300'000</div>
+
+
+                        </div>
+
+
+
+
+
                     </div>
                     <div class="pull-right">
-                        <img data-src="images/epsg2056.png">
+                        <img data-src="images/epsg2056.png" style="background-color: white; padding: 10px;">
                     </div>
                 </section>
                 <section data-transition="none">
+
+                    CH1903 LV95 (old swiss coordinate system)<br><br>
                     <div class="pull-left">
                         <img data-src="images/epsg21781.png">
                     </div>
                     <div class="pull-right">
-                        <code> CH1903 LV95</code> <br><br>
-                        <ul>
-                            <li>EPSG Code: 21781 (!) </li>
-                            <li><u>old</u> swiss coordinate system</li>
-                            <li>centered on Bern</li>
-                            <li>W-E 400'000-800'000</li>
-                            <li>S-N 100'000-300'000</li>
-                        </ul>
+
+                    
+                        <div style="display: grid; grid-template-columns: auto auto; justify-items: left; font-size:
+                        x-large;">
+                            <div>EPSG</div>
+                            <div class="fragment highlight-red">21781</div>
+
+                            <div>West-East</div>
+                            <div class="fragment highlight-red">400'000-800'000</div>
+
+                            <div>South-North</div>
+                            <div class="fragment highlight-red">100'000-300'000</div>
+
+
+                        </div>
                     </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>outdated, but still in use.</li>
+                            <li>note that the range is 2 / 1 Million below the new sytem</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <pre><code data-trim class="text" data-line-numbers="|5">
+                        CH1903+ / LV95:	   2'694'139.5, 1'230'462.0
+                        CH1903 / LV03:	   694'138.66, 230'462.17
+                        WGS 84 (lat/lon):  47.21838, 8.68150
+                        WGS 84 (lat/lon):  47°13'06.186 N 8°40'53.383 E
+                        UTM:               475'884, 5'229'482 (zone 32T)
+                        MGRS 32TMT:        75884 29482
+                        what3words:        opposing.vets.snoring
+                    </code></pre>
+
+                    <aside class="notes">
+                        Next, let's have a look at UTM Zones
+                    </aside>
+
+                </section>
+
+                <section data-transition="none">
+
+                    UTM<br><br>
+                    <div class="pull-left">
+                        <img data-src="images/map_utm32.png" style="background-color: white;">
+                    </div>
+                    <div class="pull-right">
+
+                    
+                        <div style="display: grid; grid-template-columns: auto auto; justify-items: left; font-size:
+                        x-large;">
+                            <div>EPSG</div>
+                            <div class="fragment highlight-red">32632 (32 North)</div>
+
+                            <div>West-East</div>
+                            <div class="fragment highlight-red">166'000-834'000*</div>
+
+                            <div>South-North</div>
+                            <div class="fragment highlight-red">0-9'330'000*</div>
+
+                            <div>West-East (CH) </div>
+                            <div class="fragment highlight-red">270'000 - 607'000*</div>
+
+
+                            <div>South-North (CH)</div>
+                            <div class="fragment highlight-red">5'000'000 - 5'300'000*</div>
+
+
+                        </div>
+
+                        <div style="font-size: large; text-align: left; padding-top: 20px;">* approx. values</div>
+                    </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>outdated, but still in use.</li>
+                            <li>note that the range is 2 / 1 Million below the new sytem</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -488,8 +631,13 @@
                 </section>
                 <section data-background-image="images/map3.png">
                     <aside class="notes">
-                        <li>Notice, how the circles are closer together at the poles and further apart at the equator?
-                        </li>
+                        
+                        <ul>    
+                            <li>Notice how the circles are closer together at the poles and further apart at the equator?
+                            </li>
+                            <li>1 degree of <em>latitude</em> is greatest at the equator and smaller towards the poles</li>
+                        </ul>
+
 
                         </ul>
                     </aside>
@@ -529,7 +677,7 @@
                 </section>
 
             </section>
-    
+
             <section>
                 <section>
                     Raster and vector data in QGIS<br> <br>
@@ -537,7 +685,7 @@
                     <i class="fa-solid fa-screwdriver-wrench fa-3x"></i>
 
                 </section>
-               
+
                 <section>
                     What is a geopackage? <br> <br>
                     <div style="float:left; width:30%">
@@ -584,7 +732,7 @@
 
 
 
-                
+
                 <section>
                     <i class="fa-solid fa-person-biking fa-2x" style=""></i><br><br>
 
@@ -596,7 +744,7 @@
                 </section>
                 <section>
                     <i class="fa-solid fa-clapperboard fa-2x"></i> <br> <br>
-    
+
                     Demo: Raster data in QGIS
                     <aside class="notes">
                         <ul>
@@ -608,33 +756,34 @@
                             <li>with linear interpolation and different colour ramps</li>
                             <li>duplicate layer and show hillshade with different azimuth and z-factor</li>
                             <li>duplicate layer and show contours</li>
-    
+
                         </ul>
                     </aside>
                 </section>
-    
-    
+
+
                 <section>
                     <i class="fa-solid fa-person-biking fa-2x"></i><br><br>
-    
+
                     Exercise:<br> <br>
-    
-                    <span> Import the raster datasets into QGIS and play around with symobology <br> <br> </span><br> <br>
-    
+
+                    <span> Import the raster datasets into QGIS and play around with symobology <br> <br> </span><br>
+                    <br>
+
                     </span>
-    
+
                     <i class="fa-solid fa-hourglass"></i>
                     <countdown time="900" autostart="yes" />
-    
+
                 </section>
                 <section>
                     Break <br> <br>
                     <i class="fa-solid fa-mug-saucer fa-3x"></i>
                 </section>
             </section>
-            
 
-            
+
+
 
 
             <section>
@@ -696,7 +845,7 @@
                 </section>
                 <section>
                     <div>
-                        <i class="fa-solid fa-person-biking"></i> Exercise: Complete the MCA 
+                        <i class="fa-solid fa-person-biking"></i> Exercise: Complete the MCA
 
                         <i class="fa-solid fa-hourglass"></i>
                         <countdown time="1800" autostart="yes" />
@@ -796,7 +945,7 @@
                     <i class="fa-solid fa-mug-saucer fa-3x"></i>
                 </section>
             </section>
-      
+
             <section>
                 <section>Sentinel data in QGIS</section>
                 <section>
