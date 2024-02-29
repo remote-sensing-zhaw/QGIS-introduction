@@ -1,0 +1,46 @@
+            
+            /* Text message start */
+            .message {
+                border-radius: 10px;
+                padding: 10px;
+                position: relative;
+            }
+
+            .left {
+                text-align: left;
+                background-color: #04AA6D;
+                width: 60%;
+                margin-left: 20px;
+            }
+
+            .right {
+                text-align: right;
+                background-color: #1a6acc;
+                justify-self: right;
+                width: 60%;
+                
+
+            }
+
+            .left:before {
+                content: url(images/qgis-icon_15px.png);
+                position: absolute;
+                top: 0px;
+                left: -20px;
+
+            }
+
+            .right:after {
+                content: url(images/arcgis-icon_15px.png);
+                padding-left: 10px;
+                position: absolute;
+                top: 0px;
+                margin-left: 5px;
+            }
+
+            .time {
+                font-size: large;
+                padding: 3px;
+            }
+
+            /* Text message end */

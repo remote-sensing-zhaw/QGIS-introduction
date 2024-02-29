@@ -7,6 +7,7 @@
 
     <title>Introduction to QGIS</title>
     <link rel="stylesheet" href="revealjs/dist/reset.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="revealjs/dist/reveal.css" />
@@ -260,23 +261,39 @@
                     <aside class="notes">
                         <ul>
                             <li>Start QGIS</li>
-                            <li>Why do I see news and a welcome screen?</li>
-                            <li>Change Settings → Options</li>
-                            <li>General → Application</li>
-                            <li>Icon Size → Change to reasonable size</li>
-                            <li>Hide spash screen at startup</li>
-                            <li>Show QGIS News feed on welcome page</li>
-                            <li>General → Project files → Open project on launch → New</li>
-                            <li>General → Override System Locale →</li>
+                            <li>Why do I see news and a welcome screen? We'll change this in a second</li>
+                        </ul>
+
+                        Settings
+
+                        <ul>
+                            <li>Go to "Settings → Options"</li>
+                            <li>(<em>is your UI not in English? If so, lets change that ASAP, to make debugging and websearches more fun</em>)</li>
                             <ul>
-                                <li>User interface language > English</li>
+                                <li>General → ☑ Override System Locale</li>
+                                <li>User Interface Translation: ENGLISH!</li>
                                 <li>Locale: German Switzerland (de_CH)</li>
                             </ul>
-                            <li>Show what the coorindates display when moving the mouse over the map</li>
+                            <li>General → Application</li>
+                            <ul>
+                                <li>☑ Hide spash screen at startup</li>
+                                <li>□ Show QGIS news feed at startup (if this irritates you)</li>
+                                <li>□ Check QGIS Version on startup</li>
+                                <li>Icon Size → Change to reasonable size</li>
+                            </ul>
+                            
+                            <!-- <li>General → Project files → Open project on launch → New</li> -->
+                    
+                        </ul>
+
+                        Demonstrate: 
+                        <ol>
+                            <li>Important: Create a QGIS project first (this is helpful to set the working directory)</li>
+                            <li>Show what the coordinates display when moving the mouse over the map</li>
                             <li>Import Geopackage, only one layer (Kanton Schwyz)</li>
                             <li>Show what the coordinates display now</li>
                             <li>Do a buffer</li>
-                        </ul>
+                        </ol>
 
 
                     </aside>
@@ -290,43 +307,7 @@
 
                 <section>
                     <style>
-                        .message {
-                            border-radius: 10px;
-                            padding: 10px;
-                        }
-
-                        .left {
-                            text-align: left;
-                            background-color: #04AA6D;
-                            width: 60%;
-                        }
-
-                        .right {
-                            text-align: right;
-                            background-color: #1a6acc;
-                            justify-self: right;
-                            width: 60%;
-                            
-                        }
-
-                        .left span::before {
-                            content: url(images/qgis-icon_15px.png);
-                            padding-right: 10px;
-
-                        }
-
-                        .right span::after {
-                            content: url(images/arcgis-icon_15px.png);
-                            padding-left: 10px;
-
-                        }
-
-
-
-                        .time {
-                            font-size: large;
-                            padding: 3px;
-                        }
+            
                     </style>
                     <div style="font-size: large; display: grid; gap: 10px;">
                         <div class="message left fragment">
@@ -350,9 +331,11 @@
                             <div class="time">7:08</div>
                         </div>
                         <div class="message right fragment">
-                            <span>here</span>
+                            <!-- <div> -->
+                                <span>here</span>
                             <img src="images/phone-location2.png" height="100px">
                             <div class="time">7:10</div>
+                            <!-- </div> -->
                         </div>
                     </div>
 
