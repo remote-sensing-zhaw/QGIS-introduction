@@ -12,26 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet" href="revealjs/dist/reveal.css" />
     <link rel="stylesheet" href="revealjs/dist/theme/league.css" id="theme" />
-    <style>
-        .pull-left {
-            float: left;
-            width: 47%;
-        }
-
-        .pull-right {
-            float: right;
-            width: 47%;
-        }
-
-        ul,
-        li {
-            font-size: smaller;
-        }
-
-        figcaption {
-            font-size: smaller
-        }
-    </style>
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="revealjs/plugin/highlight/monokai.css" id="highlight-theme" />
 </head>
@@ -463,6 +443,11 @@
                 </section>
                 <section>
                     Projected Coordinate Systems <br> <br>
+
+                    <img src="images/swissgrid.png" alt="" srcset="">
+                </section>
+                <section>
+                    Projected Coordinate Systems <br> <br>
                     <ul>
                         <li class="fragment">They abstract the world to a 2D-plane</li>
                         <li class="fragment">They use x/y or E/N coordinates </li>
@@ -478,7 +463,7 @@
 
 
                     CH1903+ LV95 (new swiss coordinate system)<br><br>
-                    <div class="pull-left">
+                    <div style="float: left; width: 40%;">
 
                         <div style="display: grid; grid-template-columns: auto auto; justify-items: left; font-size:
                         x-large;">
@@ -499,17 +484,18 @@
 
 
                     </div>
-                    <div class="pull-right">
-                        <img data-src="images/epsg2056.png" style="background-color: white; padding: 10px;">
+                    <div style="float: right; width: 60%;">
+                        <img data-src="images/epsg_2056.svg" style="padding: 0px;">
                     </div>
                 </section>
                 <section data-transition="none">
 
                     CH1903 LV95 (old swiss coordinate system)<br><br>
-                    <div class="pull-left">
-                        <img data-src="images/epsg21781.png">
+                    <div style="float: right; width: 60%">
+                        <img data-src="images/epsg_21781.svg">
                     </div>
-                    <div class="pull-right">
+
+                    <div style="float: left; width: 40%;">
 
                     
                         <div style="display: grid; grid-template-columns: auto auto; justify-items: left; font-size:
@@ -554,35 +540,40 @@
 
                 <section data-transition="none">
 
-                    UTM<br><br>
-                    <div class="pull-left">
-                        <img data-src="images/map_utm32.png" style="background-color: white;">
+                    UTM 32T / UTM 32 Nord<br><br>
+                    <div style="float: left; width: 50%;">
+                        <img data-src="images/map_utm32.png" style="">
                     </div>
-                    <div class="pull-right">
+
+                 
+                    <div style="float: right; width: 50%;">
 
                     
                         <div style="display: grid; grid-template-columns: auto auto; justify-items: left; font-size:
                         x-large;">
                             <div>EPSG</div>
-                            <div class="fragment highlight-red">32632 (32 North)</div>
+                            <div class="fragment highlight-red">32632</div>
 
                             <div>West-East</div>
-                            <div class="fragment highlight-red">166'000-834'000*</div>
+                            <div class="fragment highlight-red r-hstack justify-around">
+                                <div>166'000</div>
+                                <div>-</div>
+                                <div>834'000</div>
+                            </div>
 
                             <div>South-North</div>
-                            <div class="fragment highlight-red">0-9'330'000*</div>
+                            <div class="fragment highlight-red">0-9'330'000</div>
 
                             <div>West-East (CH) </div>
-                            <div class="fragment highlight-red">270'000 - 607'000*</div>
+                            <div class="fragment highlight-red">270'000 - 607'000</div>
 
 
                             <div>South-North (CH)</div>
-                            <div class="fragment highlight-red">5'000'000 - 5'300'000*</div>
+                            <div class="fragment highlight-red">5'000'000 - 5'300'000</div>
 
 
                         </div>
 
-                        <div style="font-size: large; text-align: left; padding-top: 20px;">* approx. values</div>
                     </div>
 
                     <aside class="notes">
@@ -602,7 +593,7 @@
                             <li>Import Wold Country Borders in QGIS: How does the world look in EPSG:2056?</li>
                             <li>Change to WGS84: How does the world look now?</li>
                             <li>Emphasize that the CRS of the <em>data</em> does not change</li>
-                            <li>Change to Pseudo-Mercator (EPSG: 3857): The world as we see it through google</li>
+                            <li>Change to Pseudo-Mercator (EPSG: 3857): The world as we see it through most web maps (e.g. <a href="https://www.openstreetmap.org">openstreetmap.org</a> ) </li>
                             <li>Now switch to slides to explain toy data</li>
 
                         </ul>
@@ -633,9 +624,11 @@
                     <aside class="notes">
                         
                         <ul>    
-                            <li>Notice how the circles are closer together at the poles and further apart at the equator?
+                            <li>Notice how the circles are closer together <em>horizontally</em> at the poles and further apart at the equator?
                             </li>
                             <li>1 degree of <em>latitude</em> is greatest at the equator and smaller towards the poles</li>
+                            <li>Notice how the circles distance does not change <em>vertically</em>?</li>
+                            <li>Longitudanal distance does not vary across the globe</li>
                         </ul>
 
 
@@ -748,7 +741,6 @@
                     Demo: Raster data in QGIS
                     <aside class="notes">
                         <ul>
-                            <li>open data source manager and add the desired folder as a favorite</li>
                             <li>Go to the geopackage: Notice how it is now expandable?</li>
                             <li>Add raster dataset to the project</li>
                             <li>View → Panels → Layer Styling</li>
@@ -799,14 +791,13 @@
                         Exclusion areas <br> <br>
                         <ul>
                             <li>Lakes</li>
-                            <li>National protected areas</li>
-                            <li>Minimum distance of 200 m from existing settlement areas</li>
+                            <li>Settlement areas</li>
                         </ul>
                     </div>
                     <div class="pull-right">
                         Areas of interest<br> <br>
                         <ul>
-                            <li>Sufficient wind potential</li>
+                            <!-- <li>Sufficient wind potential</li> -->
                             <li>Low risk of icing</li>
                             <li>Easy access (existing road and low gradient)</li>
                         </ul>
@@ -859,37 +850,37 @@
                             </colgroup>
                             <tr>
                                 <th>Class</th>
-                                <th>Windspeed (dm/s)</th>
+                                <!-- <th>Windspeed (dm/s)</th> -->
                                 <th>Slope (Degrees)</th>
                                 <th>Distance to Roads </th>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td>0- 35</td>
+                                <!-- <td>0- 35</td> -->
                                 <td>&#62;20</td>
                                 <td>&#62;2'000</td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>35-45</td>
+                                <!-- <td>35-45</td> -->
                                 <td>15-20</td>
                                 <td>1'500-2'000</td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>45-55</td>
+                                <!-- <td>45-55</td> -->
                                 <td>10-15</td>
                                 <td>1'000-1'500</td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>55-65</td>
+                                <!-- <td>55-65</td> -->
                                 <td>5-10</td>
                                 <td>500-1'000</td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td>&#62;65</td>
+                                <!-- <td>&#62;65</td> -->
                                 <td>0-5</td>
                                 <td>0-500</td>
                             </tr>

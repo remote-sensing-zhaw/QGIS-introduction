@@ -2,19 +2,19 @@
 graph LR
     subgraph Exclusion Areas
     0A["Settlement Areas"] --> 9A(["Merge"])
-    1A["National Protected Areas"] --> 9A
-    2A["Woodland Areas"] -->9A 
+    %% 1A["National Protected Areas"] --> 9A
+    %% 2A["Woodland Areas"] -->9A 
     3A["Lakes"] --> 9A
     9A --> 9B(["Dissolve"]) --> 9C(["Feature to Raster"]) --> 9D(["Reclassify"])
     end
     subgraph Areas of Interest
-    7A["Avarage Wind Speed"] --> 8C(["Reclassify"])
+    %% 7A["Avarage Wind Speed"] --> 8C(["Reclassify"])
     5A["DHM"] --> 6B(["Slope"]) --> 6C(["Reclassify"])
     4A["Roads"] --> 5B(["Euclidean Distance"]) --> 5C(["Reclassify"])
     end
 
-    8C --> X(["Mean"])
-    6C --> X
+    %% 8C --> X(["Mean"])
+    6C --> X["Mean"]
     5C --> X
 
     9D --> 10A(["Overlay"])

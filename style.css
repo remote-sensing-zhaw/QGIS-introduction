@@ -1,50 +1,71 @@
-            
-            /* Text message start */
-            .message {
-                border-radius: 10px;
-                padding: 10px;
-                position: relative;
-                
-            }
+.pull-left {
+    float: left;
+    width: 47%;
+}
 
-          
-           
+.pull-right {
+    float: right;
+    width: 47%;
+}
 
-            .left {
-                text-align: left;
-                background-color: #04AA6D;
-                width: 60%;
-                margin-left: 20px;
-            }
+ul,
+li {
+    font-size: smaller;
+}
 
-            .right {
-                text-align: right;
-                background-color: #1a6acc;
-                justify-self: right;
-                width: 60%;              
-                margin-right: 5px;
-            }
+figcaption {
+    font-size: smaller
+}
 
-            .left:before {
-                content: url(images/qgis-icon_15px.png);
-                position: absolute;
-                top: 0px;
-                left: -20px;
 
-            }
 
-            .right:after {
-                content: url(images/arcgis-icon_15px.png);
-                padding-left: 10px;
-                position: absolute;
-                top: 0px;
-                margin-left: 5px;
-                
-            }
 
-            .time {
-                font-size: large;
-                padding: 3px;
-            }
+/* Text message start */
+.message {
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
 
-            /* Text message end */
+}
+
+
+
+
+.left {
+    text-align: left;
+    background-color: #04AA6D;
+    width: 60%;
+    margin-left: 20px;
+}
+
+.right {
+    text-align: right;
+    background-color: #1a6acc;
+    justify-self: right;
+    width: 60%;
+    margin-right: 5px;
+}
+
+.left:before {
+    content: url(images/qgis-icon_15px.png);
+    position: absolute;
+    top: 0px;
+    left: -20px;
+
+}
+
+.right:after {
+    content: url(images/arcgis-icon_15px.png);
+    padding-left: 10px;
+    position: absolute;
+    top: 0px;
+    margin-left: 5px;
+
+}
+
+.time {
+    font-size: large;
+    padding: 3px;
+}
+
+/* Text message end */
