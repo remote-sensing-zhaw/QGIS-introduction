@@ -2,9 +2,9 @@
 
 library(sf)
 library(ggplot2)
-
+library(dplyr)
 library(pacman)
-pacman::p_install_gh("ropensci/rnaturalearthhires")
+# pacman::p_install_gh("ropensci/rnaturalearthhires")
 
 # install.packages("rnaturalearth")
 # install.packages("rnaturalearthdata")
@@ -13,8 +13,10 @@ library(rnaturalearthdata)
 
 
 world_countries <- rnaturalearth::ne_countries(returnclass = "sf")
+
 switzerland <- ne_countries(scale = 10, country = "switzerland", returnclass = "sf")
 
+# todo: make sure all data is doenloaded locally and use this instead
 write_sf(world_countries, "natural_earth.gpkg", "world")
 write_sf(switzerland, "natural_earth.gpkg", "switzerland")
 
@@ -120,19 +122,168 @@ purrr::map2(projinfo$name, projinfo$description, \(proji, desc) tryCatch(plot_pr
 
 
 
+
+
+st_multilinestring(
+  list(
+    matrix(c(10,0,  90, 0, 10, 0),ncol = 2, byrow = TRUE)
+    # matrix(c(10,0, -170, 0, 10, 0),ncol = 2, byrow = TRUE)
+  )
+  ) |> 
+  st_sfc(crs = 4326) -> eq 
+
+
+
+
+x1 <- seq(-180, 180,.1)
+y2 <- seq(-90, 90, .1)
+
+  
+my_points2  <-  rbind(
+  tibble(x = x1, y = 0), 
+  tibble(x = 0, y = y2),
+  tibble(x = 180, y = y2)
+  )  %>%
+  st_as_sf(coords = c("x","y"), remove = FALSE, crs = 4326) 
+
+
+## WGS84
+ggplot() +
+  geom_sf(data = circle, fill = "#68838B") +
+  geom_sf(data = world_countries, fill = "darkgrey",color = "lightgrey") +
+  geom_sf(data = my_points2, size = .5) +
+  coord_sf(crs = ortho) +
+  theme(panel.background = element_rect(fill="transparent"),
+        plot.background = element_rect(fill="transparent", color=NA),
+        panel.ontop = FALSE) 
+
 # Now, visualize UTM Zones
 
 # https://hub.arcgis.com/datasets/esri::world-utm-grid/explore
 utm_zones <- read_sf("World_UTM_Grid_-8777149898303524843.gpkg")
 
 
+utm_zones
+
+north_letters <- LETTERS[14:23]
+south_letters <- LETTERS[3:13]
+
+utm_zones <- utm_zones |> 
+  mutate(n_s = case_when(
+    ROW_ %in% north_letters ~ "N",
+    ROW_ %in% south_letters ~ "S",
+    .default = NA_character_
+  ))
+
+utm_simplified <- utm_zones |> 
+  filter(!is.na(n_s)) |> 
+  group_by(ZONE, n_s) |> 
+  summarise()
+
+
 utm_zones <- st_make_valid(utm_zones)
 ggplot() +
+  geom_sf(data = circle, fill = "#68838B") +
   geom_sf(data = world_countries, fill = "darkgrey",color = "lightgrey") +
-  geom_sf(data = dplyr::filter(utm_zones, ZONE > 20, ZONE < 22))  +
-  geom_sf(data = circle, fill = NA) +
+  geom_sf(data = utm_simplified, fill = NA, lwd = 2)  +
+  geom_sf(data = filter(utm_simplified, ZONE == 32, n_s == "N"), fill = "#17705d")  +
+  geom_sf(data = filter(utm_zones, ZONE == 32, ROW_ == "T"), fill = "#74223d") +
   coord_sf(crs = ortho) +
   theme(panel.background = element_rect(fill="transparent"),
         plot.background = element_rect(fill="transparent", color=NA),
         panel.ontop = FALSE)
 
+
+ggsave("../images/map_utm32.png", height = 30, width = 30, units = "cm",scale = 2)
+
+
+
+world_countries |> 
+  filter(name_en == "Switzerland") |> 
+  st_transform(32632) |> 
+  st_bbox() |> 
+  (\(x)round(x/1000)*1000)()
+
+
+## Maps for epsg2056 and 21781
+
+lakes10 <- ne_download(scale = 10, type = "lakes_europe", category = "physical",returnclass = "sf")
+lakes50 <- ne_download(scale = 10, type = "lakes", category = "physical",returnclass = "sf")
+
+lakes10 <- st_make_valid(lakes10)
+lakes50 <- st_make_valid(lakes50)
+
+lakes <- rbind(lakes10[,"name_de"], lakes50[,"name_de"])
+lakes_ch <- lakes[switzerland,,]
+
+
+## epsg 2056
+
+xc <- 2600000
+yc <- 1200000
+poix <- 2694139
+poiy <- 1230462
+offset <- tibble(
+  x = c(poix, xc), 
+  y = c(yc, poiy), 
+  xend = c(poix, poix), 
+  yend = c(poiy, poiy))
+
+
+
+
+library(ggrepel)
+ggplot() +
+  geom_sf(data = switzerland, fill = "darkgrey",color = "lightgrey") +
+  geom_sf(data = lakes_ch, fill = "#17705d") +
+  geom_vline(xintercept = xc) +
+  geom_hline(yintercept = yc) +
+  # geom_segment(data = offset,aes(x,y,xend = xend,yend = yend), colour = "#17705d", lty = 3) +
+  # geom_text(data = offset[1,], aes(x, yend), label = "Grüental",nudge_x = 5000, nudge_y = 10000,hjust = 0) +
+  scale_x_continuous(breaks = xc,labels = scales::label_number(big.mark = "'")) +
+  scale_y_continuous(breaks = yc,labels = scales::label_number(big.mark = "'")) +
+  coord_sf(crs = 2056,datum = 2056) +
+  theme(panel.background = element_rect(fill="transparent"),
+        plot.background = element_rect(fill="transparent", color=NA),
+        panel.ontop = FALSE,
+        panel.grid = element_blank(),
+        axis.title = element_blank(),
+        axis.text = element_text(color = "white",size = 30),
+        axis.text.y = element_text(angle = 90, hjust = .5))
+
+
+ggsave("../images/epsg_2056.svg",height = 30/1.6, width = 30, units = "cm",scale = 1)
+
+
+
+xc <- 600000
+yc <- 200000
+poix <- 694139
+poiy <- 230462
+offset <- tibble(
+  x = c(poix, xc), 
+  y = c(yc, poiy), 
+  xend = c(poix, poix), 
+  yend = c(poiy, poiy))
+
+
+ggplot() +
+  geom_sf(data = switzerland, fill = "darkgrey",color = "lightgrey") +
+  geom_sf(data = lakes_ch, fill = "#17705d") +
+  geom_vline(xintercept = xc) +
+  geom_hline(yintercept = yc) +
+  # geom_segment(data = offset,aes(x,y,xend = xend,yend = yend), colour = "#17705d", lty = 3) +
+  # geom_text(data = offset[1,], aes(x, yend), label = "Grüental",nudge_x = 5000, nudge_y = 10000,hjust = 0) +
+  scale_x_continuous(breaks = xc,labels = scales::label_number(big.mark = "'")) +
+  scale_y_continuous(breaks = yc,labels = scales::label_number(big.mark = "'")) +
+  coord_sf(crs = 21781,datum = 21781) +
+  theme(panel.background = element_rect(fill="transparent"),
+        plot.background = element_rect(fill="transparent", color=NA),
+        panel.ontop = FALSE,
+        panel.grid = element_blank(),
+        axis.title = element_blank(),
+        axis.text = element_text(color = "white",size = 30),
+        axis.text.y = element_text(angle = 90, hjust = .5))
+
+
+ggsave("../images/epsg_21781.svg",height = 30/1.6, width = 30, units = "cm",scale = 1)
