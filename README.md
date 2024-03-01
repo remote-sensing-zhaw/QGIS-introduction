@@ -2,7 +2,10 @@
 ## ToDo in 2024:
 
 - [ ] the MCE is too complex, make it smaller. It currently tries to resemble what they did in the GIS course, but that is not necessary. Make it smaller and more focused on the workshop.
+- [ ] Provide the PDF to the students
 
+
+https://remote-sensing-zhaw.github.io/QGIS-introduction/?notes
 
 ## General
 
