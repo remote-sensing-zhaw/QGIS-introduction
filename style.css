@@ -19,6 +19,34 @@ figcaption {
 
 
 
+/* lesson overview start */
+#lesson-overview {
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+    row-gap: 20px;
+}
+
+#lesson-overview>div {
+    align-self: center;
+}
+
+/* lesson overview end */
+
+
+/* slide type start */
+#slide-types {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-row-gap: 50px
+
+}
+/* a silly way to solve this: */
+#slide-types > div > div:nth-child(2){
+    padding-top: 20px;
+}
+/* slide type end */
+
 
 /* Text message start */
 .message {

@@ -1,5 +1,5 @@
 
-# https://gist.githubusercontent.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1/raw/b1db3a5979c597a4333849a84c9fa18d40ca2066/ortho_view.R
+# https://gist.github.com/fzenoni/ef23faf6d1ada5e4a91c9ef23b0ba2c1/
 # Download earth data first
 # https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/physical/ne_110m_land.zip
 
@@ -9,6 +9,8 @@ library(dplyr)
 library(ggplot2)
 library(mapview)
 
+
+sf::sf_use_s2(FALSE)
 # Read the data
 # mini_world <- read_sf('data/ne_110m_land/ne_110m_land.shp')
 mini_world <- read_sf('natural_earth.gpkg', "world")
